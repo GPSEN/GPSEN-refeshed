@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Custom Map for GPSEN</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQp-IHtT62Vawnx8A2n1ZEYorWVJD-PD8"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="stylesheets/styles.css"/>
+	<style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; width: 100%;}
+    </style>
+</head>
+<body>
+    <div class="testDiv">
+
+    </div>
+    <h3 class="blueHeaders">P-K-12 Schools</h3>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+            <script>
+
+            </script>
+            <tr>
+                <td><a href="#" class="testButton 2" onclick="myClick(2);" data-mapID="2">Open Info Window</a></td>
+                <td><a href="http://www.catlin.edu/index.cfm" target="_blank">Catlin Gabel</a><a class="floatRight" href="#" id="0">[map]</a></td>
+                <td><a href="http://www.emersonschool.org/" target="_blank">The Emerson School</a><a href="#" onclick="markerClick(1);">Open Info Window</a></td>
+            </tr>
+            <tr>
+                <td><a href="" target="_blank">The International School</a><a class="floatRight" href="">[map]</a></td>
+                <td><a href="http://www.nclack.k12.or.us/site/default.aspx?PageID=1"target="_blank">North Clackamas School District</a><a class="floatRight" href="">[map]</a></td>
+            </tr>
+            <tr>
+                <td><a href="http://www.pps.k12.or.us/" target="_blank">Portland Public Schools</a><a class="floatRight" href="">[map]</a></td>
+                <td><a href="http://gladstone.k12.or.us/" target="_blank">Gladstone School District</a><a class="floatRight" href="">[map]</a></td>
+            </tr>
+            <tr>
+                <td><a href="http://vansd.org/" target="_blank">Vancouver Public Schools</a><a class="floatRight" href="">[map]</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+	<div id="mapDiv">
+		<div id="map-canvas"></div>
+	</div>
+	
+
+
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="_/js/jquery.csv.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="_/components/js/scripts.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

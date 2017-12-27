@@ -1,0 +1,1297 @@
+/*-------
+
+	Programmer = Keith Murphy 
+	File = scriptsMap.js
+	date Created = 8_10_2015
+	lastMod = 8_10_2015
+------*/
+/* line 8, ../_/components/sass/styles.scss */
+.floatLeft {
+  float: left; }
+
+/* line 12, ../_/components/sass/styles.scss */
+.markerInfoWindow h2 {
+  text-align: center;
+  font-size: 3em; }
+/* line 16, ../_/components/sass/styles.scss */
+.markerInfoWindow .floatLeft {
+  width: 45%;
+  margin: 2% auto; }
+/* line 23, ../_/components/sass/styles.scss */
+.markerInfoWindow p {
+  font-size: 1.25em;
+  padding: 2%; }
+
+/* line 29, ../_/components/sass/styles.scss */
+#mapDiv {
+  width: 75%;
+  height: 100%;
+  margin: 20% auto; }
+
+/* line 34, ../_/components/sass/styles.scss */
+#map-canvas {
+  width: 100%;
+  height: 100%; }
+
+/*----Note---
+
+    link lite blue = background: #53b1e5;
+
+    link lite blue :hover = background: #7AC6EF;
+
+    darker blue = #0C85C6
+
+---*/
+/*----colors---
+
+    main blue = #20429c
+
+main light blue = #53b1e5
+
+-----*/
+/* http://meyerweb.com/eric/tools/css/reset/
+
+   v2.0 | 20110126
+
+   License: none (public domain)
+
+*/
+/* line 66, ../_/components/sass/styles.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+/* line 108, ../_/components/sass/styles.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 116, ../_/components/sass/styles.scss */
+body {
+  line-height: 1; }
+
+/* line 122, ../_/components/sass/styles.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 128, ../_/components/sass/styles.scss */
+blockquote, q {
+  quotes: none; }
+
+/* line 134, ../_/components/sass/styles.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 144, ../_/components/sass/styles.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*-----------------------------------------------------helper classes----*/
+/* line 154, ../_/components/sass/styles.scss */
+a:link {
+  text-decoration: none !important; }
+
+/* line 160, ../_/components/sass/styles.scss */
+a :visited {
+  text-decoration: none !important; }
+
+/* line 166, ../_/components/sass/styles.scss */
+a:hover {
+  text-decoration: none !important; }
+
+/* line 172, ../_/components/sass/styles.scss */
+a:active {
+  text-decoration: none !important; }
+
+/* line 178, ../_/components/sass/styles.scss */
+.clearBoth {
+  clear: both; }
+
+/* line 184, ../_/components/sass/styles.scss */
+.centerText {
+  text-align: center; }
+
+/* line 190, ../_/components/sass/styles.scss */
+.rightText {
+  text-align: right; }
+
+/* line 196, ../_/components/sass/styles.scss */
+.floatRight {
+  float: right; }
+
+/* line 202, ../_/components/sass/styles.scss */
+.floatLeft {
+  float: left; }
+
+/* line 208, ../_/components/sass/styles.scss */
+.text-indent-50px {
+  text-indent: 25px; }
+
+/* line 214, ../_/components/sass/styles.scss */
+.font-weight-bold {
+  font-weight: bold; }
+
+/* line 220, ../_/components/sass/styles.scss */
+.removeBorder {
+  border: none !important; }
+
+/* line 226, ../_/components/sass/styles.scss */
+.removeMarginBottom {
+  margin-bottom: 0 !important; }
+
+/* line 232, ../_/components/sass/styles.scss */
+.removeMargin {
+  margin: 0 0 0 0 !important; }
+
+/* line 238, ../_/components/sass/styles.scss */
+.addLiteMarginTop {
+  margin-top: 2% !important; }
+
+/* line 242, ../_/components/sass/styles.scss */
+.displayBlock {
+  display: block; }
+
+/* line 248, ../_/components/sass/styles.scss */
+.displayNone {
+  display: none; }
+
+/* line 254, ../_/components/sass/styles.scss */
+.removeFormField {
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0; }
+
+/* line 268, ../_/components/sass/styles.scss */
+.imgCenter {
+  margin: 0 auto;
+  display: block; }
+
+/* line 276, ../_/components/sass/styles.scss */
+.blueHeaders {
+  background: #0C85C6;
+  padding: .5em;
+  border-radius: 3px;
+  color: white;
+  line-height: 1em !important;
+  box-shadow: inset 0px -1px 2px 0px rgba(255, 255, 255, 0.25); }
+
+/* line 292, ../_/components/sass/styles.scss */
+.greenHeaders {
+  color: #fff;
+  padding: .5em;
+  border-radius: 3px;
+  box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
+  background-color: #009653;
+  font-family: bitter; }
+
+/* line 308, ../_/components/sass/styles.scss */
+.liteBlueButton {
+  background: #53b1e5;
+  border-radius: 3px;
+  border: none;
+  text-align: center;
+  box-shadow: 0px -1px 3px 0px rgba(255, 255, 255, 0.25) inset;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  color: #fff !important;
+  cursor: pointer; }
+
+/* line 330, ../_/components/sass/styles.scss */
+.liteBlueButton a {
+  color: #fff !important;
+  display: block !important;
+  padding: 1em !important; }
+
+/* line 342, ../_/components/sass/styles.scss */
+.liteBlueButton:Hover {
+  background: #7AC6EF;
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+/* line 350, ../_/components/sass/styles.scss */
+.liteBlueButton:active {
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5); }
+
+/* line 356, ../_/components/sass/styles.scss */
+.darkBlueButton {
+  background: #0C85C6;
+  padding: .5em;
+  color: #fff !important;
+  text-align: center;
+  display: block;
+  margin: 2% 0;
+  border-radius: 3px;
+  -webkit-transition: background .25s ease;
+  transition: background .25s ease;
+  cursor: pointer; }
+
+/* line 380, ../_/components/sass/styles.scss */
+.darkBlueButton:hover {
+  background: #3296CB;
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+/* line 388, ../_/components/sass/styles.scss */
+.darkBlueButton:active {
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5); }
+
+/* line 394, ../_/components/sass/styles.scss */
+.accordionHeadersGrey {
+  background: #D6D6D6;
+  padding: .5em;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease; }
+
+/* line 410, ../_/components/sass/styles.scss */
+.accordionHeadersGrey:hover {
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+/* line 416, ../_/components/sass/styles.scss */
+.midGreenButton {
+  background: #009653;
+  padding: .5em;
+  color: #fff;
+  border-radius: 3px;
+  -webkit-transition: all .25s ease-out;
+  transition: all .25s ease-out;
+  text-align: center;
+  cursor: pointer; }
+
+/* line 436, ../_/components/sass/styles.scss */
+.midGreenButton:hover {
+  background: #007A43;
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+/* line 444, ../_/components/sass/styles.scss */
+.whiteCard {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0px 1px 3px 0px #aaa;
+  padding: 2%; }
+
+/* line 456, ../_/components/sass/styles.scss */
+.greySections {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 1%;
+  border-radius: 3px; }
+
+/*-----------end helper classes-*/
+/*----------------general styles----*/
+/* line 470, ../_/components/sass/styles.scss */
+.entry p {
+  font-size: 1.25em;
+  margin-left: .5em; }
+
+/* line 478, ../_/components/sass/styles.scss */
+.contactInfomation {
+  width: 50%;
+  margin: 0 auto;
+  text-align: justify; }
+
+/* line 486, ../_/components/sass/styles.scss */
+h3 {
+  font-size: 2em; }
+
+/*--------fontIcons-*/
+@font-face {
+  font-family: FontAwesome; }
+/* line 498, ../_/components/sass/styles.scss */
+[data-icon]:before {
+  font-family: FontAwesome;
+  content: attr(data-icon);
+  speak: none; }
+
+/* line 508, ../_/components/sass/styles.scss */
+.fa.floatRight {
+  vertical-align: middle; }
+
+/*-----backgroundImagesForPages---*/
+/*----becomePartnerPage--*/
+/* line 516, ../_/components/sass/styles.scss */
+.page-id-552 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/10/becomePartnerPage.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/*----partnersBenifitsPage---*/
+/* line 526, ../_/components/sass/styles.scss */
+.page-id-584 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/10/partnersBenifits.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/*----newsletterPage---*/
+/* line 536, ../_/components/sass/styles.scss */
+.page-id-577 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/10/signUpNewsletterPage.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/*---suggestNewsletterPage---*/
+/* line 546, ../_/components/sass/styles.scss */
+.page-id-586 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/10/suggestNewsletterItemPage.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/*--------------This is for the main #navigation------*/
+/* line 556, ../_/components/sass/styles.scss */
+#navigation {
+  background: #0C85C6; }
+
+/* line 562, ../_/components/sass/styles.scss */
+#navigation ul li {
+  background: #0C85C6;
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease; }
+
+/* line 572, ../_/components/sass/styles.scss */
+#navigation ul li:hover {
+  background: #ffffff !important;
+  box-shadow: 0px 2px 2px 0px #AAAAAA; }
+
+/* line 580, ../_/components/sass/styles.scss */
+#navigation ul li a {
+  color: #fff;
+  -webkit-transition: color .15s ease !important;
+  transition: color .15s ease !important; }
+
+/* line 590, ../_/components/sass/styles.scss */
+#navigation ul li a:hover {
+  color: #000; }
+
+/* line 596, ../_/components/sass/styles.scss */
+#navigation ul .current_page_item {
+  background: #fff;
+  color: #000;
+  box-shadow: 0px 2px 2px 0px #AAAAAA; }
+
+/*----------------------------------------------------------This is for the sliders---*/
+/*---this removes the padding form the left side of the slider----*/
+/* line 610, ../_/components/sass/styles.scss */
+.entry ul {
+  padding: 0; }
+
+/*---this is for the header section---*/
+/* line 618, ../_/components/sass/styles.scss */
+#header {
+  padding-bottom: 20px;
+  padding-top: 20px; }
+
+/* line 626, ../_/components/sass/styles.scss */
+.headerh1 {
+  margin: 3% 0 2% 0; }
+
+/* line 632, ../_/components/sass/styles.scss */
+.headerh1 h1 {
+  border-bottom: 2px solid #20429c;
+  margin: 0; }
+
+/* line 640, ../_/components/sass/styles.scss */
+.headerh1 h3 {
+  font-size: 1em;
+  border-bottom: 2px solid #20429c;
+  padding: 1% 0;
+  margin: 0; }
+
+/* line 652, ../_/components/sass/styles.scss */
+.headerSocialMediaLogin {
+  width: 20%;
+  margin: 2% 0 0 2%; }
+
+/* line 660, ../_/components/sass/styles.scss */
+.headerSocialMediaLogin ul {
+  float: left;
+  margin-top: 5%; }
+
+/* line 670, ../_/components/sass/styles.scss */
+.headerSocialMediaLogin ul li {
+  float: left;
+  margin: 0 0 0 5px;
+  display: inline-block; }
+
+/*-----.headerSocialMediaLogin a img {
+
+    display: inline-block;
+
+    float: left;
+
+    width: 15%;
+
+    margin: 2% 0 0 5%;
+
+}---*/
+/* line 692, ../_/components/sass/styles.scss */
+.headerSocialMediaLogin ul li a {
+  padding: 1.10em;
+  font-size: inherit; }
+
+/* line 700, ../_/components/sass/styles.scss */
+.twitterIcon {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/twitter.png") no-repeat 0 0;
+  background-size: 2em;
+  -webkit-transition: background .25s ease-in;
+  transition: background .25s ease-in; }
+
+/* line 712, ../_/components/sass/styles.scss */
+.twitterIcon:hover {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/twitterHover.png") no-repeat 0 0;
+  background-size: 2em; }
+
+/* line 720, ../_/components/sass/styles.scss */
+.facebookIcon {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/facebook.png") no-repeat 0 0;
+  background-size: 2em;
+  -webkit-transition: background .25s ease-in;
+  transition: background .25s ease-in; }
+
+/* line 732, ../_/components/sass/styles.scss */
+.facebookIcon:hover {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/facebookHover.png") no-repeat 0 0;
+  background-size: 2em; }
+
+/* line 740, ../_/components/sass/styles.scss */
+.instagramIcon {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/instagram.png") no-repeat 0 0;
+  background-size: 2em;
+  -webkit-transition: background .25s ease-in;
+  transition: background .25s ease-in; }
+
+/* line 752, ../_/components/sass/styles.scss */
+.instagramIcon:hover {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/instagramHover.png") no-repeat 0 0;
+  background-size: 2em; }
+
+/* line 760, ../_/components/sass/styles.scss */
+.linkedInIcon {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/linkedIn.png") no-repeat 0 0;
+  background-size: 2em;
+  -webkit-transition: background .25s ease-in;
+  transition: background .25s ease-in; }
+
+/* line 772, ../_/components/sass/styles.scss */
+.linkedInIcon:hover {
+  background: url("http://gpsen.org/wp-content/uploads/2015/08/linkedInHover.png") no-repeat 0 0;
+  background-size: 2em; }
+
+/* line 780, ../_/components/sass/styles.scss */
+.youTubeIcon {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/youTube.png") no-repeat 0 0;
+  background-size: 2em;
+  -webkit-transition: background .5s ease-in;
+  transition: background .5s ease-in; }
+
+/* line 792, ../_/components/sass/styles.scss */
+.youTubeIcon:hover {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/youTubeHover.jpg") no-repeat 0 0;
+  background-size: 2em; }
+
+/*---------------------------------------------------home page---*/
+/* line 802, ../_/components/sass/styles.scss */
+.home #sidebar {
+  margin: 5% 0 0 0 !important; }
+
+/* line 808, ../_/components/sass/styles.scss */
+.homeLeft {
+  margin: 5% 0 0 0; }
+
+/* line 814, ../_/components/sass/styles.scss */
+.home {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/backgroundImage11500X1023.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/*---------------------------------------------This is for the Members Page--------*/
+/* line 824, ../_/components/sass/styles.scss */
+.page-id-9 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/RCE-CentersPage2_1500X1023.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/*-------------------This is for the blog page-----*/
+/* line 834, ../_/components/sass/styles.scss */
+.blog {
+  background: url("http://gpsen.org/wp-content/uploads/2015/08/blogPageBackground.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/* line 842, ../_/components/sass/styles.scss */
+.blog .entry-title {
+  background: #009653;
+  width: 100%;
+  margin: 2% auto;
+  font-size: 1.30em;
+  border-radius: 3px;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease; }
+
+/* line 860, ../_/components/sass/styles.scss */
+.blog .entry-title a {
+  color: #fff !important;
+  display: block;
+  padding: 1em; }
+
+/* line 872, ../_/components/sass/styles.scss */
+.blog .entry-title:hover {
+  background: #007A43;
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+/*----------------------------------------This is for the newsPage------------*/
+/* line 882, ../_/components/sass/styles.scss */
+.page-id-105 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/newsPageBackground.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/* line 890, ../_/components/sass/styles.scss */
+#newsPage h2.blueHeaders {
+  margin: 12% 0 0 0; }
+
+/* line 896, ../_/components/sass/styles.scss */
+.newsAccordionInnerDiv {
+  width: 45%;
+  margin: 0 2%;
+  display: inline-block; }
+
+/* line 906, ../_/components/sass/styles.scss */
+.newsAccordionInnerDiv p {
+  margin: 0; }
+
+/* line 912, ../_/components/sass/styles.scss */
+.newsAccordionInnerDiv p.liteBlueButton {
+  margin: 2% 0;
+  text-align: left;
+  padding: 1em;
+  font-size: 1em; }
+
+/* line 926, ../_/components/sass/styles.scss */
+.lastArchivesDiv p:nth-child(even) {
+  display: none; }
+
+/*----------------------------------------for the About Page-------------*/
+/* line 934, ../_/components/sass/styles.scss */
+.page-id-7 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/10/aboutPageBackground.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/*--.page-id-7 p {
+
+    font-size: 1.15em;
+
+}--*/
+/* line 948, ../_/components/sass/styles.scss */
+#aboutPage > div.whiteCard {
+  display: inline-block;
+  width: 100%; }
+
+/*-----this is paragraph for logo text---*/
+/* line 958, ../_/components/sass/styles.scss */
+#aboutPage > div.greySections .whiteCard .floatLeft:nth-child(2) {
+  margin: 5% 0 0 1%;
+  width: 50%; }
+
+/* line 966, ../_/components/sass/styles.scss */
+.meaningLogoText {
+  background: #53b1e5;
+  border-radius: 3px;
+  box-shadow: 0px 1px 3px #aaa inset;
+  -webkit-transition: background .25s ease;
+  transition: background .25s ease;
+  margin: 0 auto; }
+
+/* line 982, ../_/components/sass/styles.scss */
+.meaningLogoText:hover {
+  box-shadow: 0px -1px 3px #aaa inset;
+  background: #7AC6EF;
+  -webkit-transition: background .25s ease;
+  transition: background .25s ease; }
+
+/* line 994, ../_/components/sass/styles.scss */
+.meaningLogoText h4 {
+  color: #ffffff;
+  font-size: 1em; }
+
+/* line 1000, ../_/components/sass/styles.scss */
+.meaningLogoText h4 a {
+  color: #ffffff;
+  padding: 1em;
+  display: block; }
+
+/* line 1010, ../_/components/sass/styles.scss */
+.meaningLogoText p {
+  display: none; }
+
+/* line 1016, ../_/components/sass/styles.scss */
+#aboutPage a:nth-child(3) {
+  text-align: center; }
+
+/* line 1022, ../_/components/sass/styles.scss */
+#aboutPage a:nth-child(3):hover {
+  text-decoration: none; }
+
+/* line 1026, ../_/components/sass/styles.scss */
+#aboutPage ul {
+  margin-left: .5em; }
+
+/* line 1032, ../_/components/sass/styles.scss */
+#aboutPage ul li {
+  font-size: 1.25em;
+  line-height: 2em; }
+
+/* line 1040, ../_/components/sass/styles.scss */
+#aboutPage ol {
+  font-size: 1.25em;
+  line-height: 2em; }
+
+/*--------------------------------------------Events Page---*/
+/* line 1050, ../_/components/sass/styles.scss */
+.page-id-49 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/08/eventsPageBackground.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/* line 1056, ../_/components/sass/styles.scss */
+.page-id-49 article.post-49 h1.title {
+  display: none; }
+
+/* line 1062, ../_/components/sass/styles.scss */
+.eventsPage .greySections .floatLeft {
+  box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+  border: none;
+  margin-right: 4%; }
+
+/*-----this is the coordinatingCommitteePage---*/
+/* line 1076, ../_/components/sass/styles.scss */
+#coordinatingCommitteePage ul {
+  overflow: visible;
+  margin-left: 5%; }
+
+/*--------------------------------------This is for the FAQ page------*/
+/* line 1086, ../_/components/sass/styles.scss */
+.page-id-45 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/FAQBackground.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/* line 1094, ../_/components/sass/styles.scss */
+#FAQAccordion {
+  margin-top: 10%; }
+
+/*----#FAQAccordion > div {
+
+    background: #EFEFEF;
+
+    padding: 2%;
+
+    border-radius: 3px;
+
+} -*/
+/* line 1110, ../_/components/sass/styles.scss */
+#FAQAccordion p {
+  font-size: 1.15em; }
+
+/* line 1116, ../_/components/sass/styles.scss */
+#FAQAccordion h3 {
+  background: #D6D6D6;
+  padding: .5em;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  line-height: 1.15em;
+  font-size: 1.5em; }
+
+/* line 1136, ../_/components/sass/styles.scss */
+#FAQAccordion h3:hover {
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+/* line 1142, ../_/components/sass/styles.scss */
+#FAQAccordion .listLinkButton {
+  background: #53b1e5;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  display: block;
+  width: 95%;
+  margin: 2% auto;
+  border-radius: 3px;
+  box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25); }
+
+/* line 1162, ../_/components/sass/styles.scss */
+#FAQAccordion .listLinkButton:hover {
+  background: #7AC6EF;
+  box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25); }
+
+/* line 1170, ../_/components/sass/styles.scss */
+#FAQAccordion .listLinkButton a {
+  display: block;
+  padding: 1em;
+  color: white; }
+
+/* line 1180, ../_/components/sass/styles.scss */
+#FAQAccordion .listLinkButton a:hover {
+  text-decoration: none; }
+
+/* line 1186, ../_/components/sass/styles.scss */
+#FAQAccordion .listLinkButton a:before {
+  font-family: FontAwesome;
+  content: '\f08e';
+  vertical-align: middle;
+  padding-right: 3%; }
+
+/*-------------------------------------------Partners Page----*/
+/* line 1200, ../_/components/sass/styles.scss */
+.page-id-100 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/09/partnersPageBackground4.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/* line 1208, ../_/components/sass/styles.scss */
+#partnersPage table td {
+  border-top: none; }
+
+/* line 1214, ../_/components/sass/styles.scss */
+#partnersPage table td a {
+  color: #000; }
+
+/* line 1220, ../_/components/sass/styles.scss */
+#partnersPage table td a:hover {
+  text-decoration: none; }
+
+/* line 1226, ../_/components/sass/styles.scss */
+#partnersPage table td:hover {
+  background: #D6D6D6; }
+
+/* line 1232, ../_/components/sass/styles.scss */
+#partnersMapDiv {
+  margin: 0 0 4% 0; }
+
+/*-------------------------------------------#resourcePage--*/
+/* line 1240, ../_/components/sass/styles.scss */
+.page-id-11 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/08/resourcesPageBackground.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/*----------------------------#governancePage----*/
+/* line 1250, ../_/components/sass/styles.scss */
+#governancePage h4.liteBlueButton {
+  padding: .5em;
+  text-align: left; }
+
+/* line 1258, ../_/components/sass/styles.scss */
+#governancePage ul {
+  overflow: visible;
+  padding: 0 0 0 5%; }
+
+/* line 1266, ../_/components/sass/styles.scss */
+#governancePage ul li {
+  list-style-type: disc; }
+
+/* line 1272, ../_/components/sass/styles.scss */
+#governancePage .greySections:nth-of-type(2) ul li > ul li {
+  list-style-type: circle; }
+
+/* line 1278, ../_/components/sass/styles.scss */
+#governancePage .governancePolicies .floatLeft {
+  width: 45%;
+  margin: 0 2%; }
+
+/* line 1286, ../_/components/sass/styles.scss */
+.governancePolicies .floatLeft p {
+  margin: 0; }
+
+/* line 1292, ../_/components/sass/styles.scss */
+#governancePage .floatLeft p.liteBlueButton {
+  margin: 2% 0;
+  text-align: left;
+  font-size: 1em;
+  padding: 1em; }
+
+/* line 1306, ../_/components/sass/styles.scss */
+.governancePolicies .floatLeft:nth-of-type(1) p:nth-of-type(3),
+.governancePolicies .floatLeft:nth-of-type(1) p:nth-of-type(5),
+.governancePolicies .floatLeft:nth-of-type(1) p:nth-of-type(4),
+#governancePage > div:nth-child(6) > div > div:nth-child(2) > p:nth-child(2) {
+  display: none; }
+
+/* line 1318, ../_/components/sass/styles.scss */
+.governancePolicies .floatLeft:nth-of-type(2) p:nth-of-type(3) {
+  display: none; }
+
+/* line 1324, ../_/components/sass/styles.scss */
+#governanceAccordion .floatLeft {
+  width: 45%;
+  margin: 0 2%;
+  display: inline-block; }
+
+/* line 1334, ../_/components/sass/styles.scss */
+#governanceAccordion .floatLeft p {
+  text-align: left; }
+
+/* line 1340, ../_/components/sass/styles.scss */
+#governanceAccordion .floatLeft p:nth-child(even) {
+  display: none; }
+
+/*-------------formPage---*/
+/* line 1348, ../_/components/sass/styles.scss */
+.gform_wrapper .ginput_complex label {
+  margin-top: 0; }
+
+/* line 1354, ../_/components/sass/styles.scss */
+.gform_wrapper .top_label select.medium {
+  width: 100%; }
+
+/*-----donatePage---*/
+/* line 1362, ../_/components/sass/styles.scss */
+#gform_2 {
+  margin: 10% 0 0 0; }
+
+/* line 1368, ../_/components/sass/styles.scss */
+.gform_wrapper ul li.gfield {
+  margin-bottom: 15px; }
+
+/* line 1374, ../_/components/sass/styles.scss */
+#gform_2 h3 {
+  color: #fff;
+  padding: .5em;
+  border-radius: 3px;
+  box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
+  background-color: #009653;
+  font-family: bitter; }
+
+/*-----------becomePartnerPage--------*/
+/* line 1390, ../_/components/sass/styles.scss */
+#becomePartnerPage h3.blueHeaders {
+  margin: 5% 0 0; }
+
+/* line 1396, ../_/components/sass/styles.scss */
+#becomePartnerPage h3.greenHeaders {
+  cursor: pointer; }
+
+/* line 1402, ../_/components/sass/styles.scss */
+#becomePartnerPage ul {
+  overflow: visible;
+  margin: 0 0 15px 5%; }
+
+/* line 1410, ../_/components/sass/styles.scss */
+#becomePartnerPage ul ul {
+  overflow: visible;
+  margin: 0 0 15px 5%; }
+
+/*------------------------------------------widget areas-------*/
+/*---------widget sidebar--*/
+/*---This is for the donate Section----*/
+/* line 1424, ../_/components/sass/styles.scss */
+#text-5 a:hover {
+  text-decoration: none; }
+
+/* line 1430, ../_/components/sass/styles.scss */
+#text-5 h3 {
+  background: #009653;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  color: #fff;
+  border: none;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+  margin: 1% auto;
+  font-size: 1.5em;
+  border-radius: 3px;
+  box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25); }
+
+/* line 1458, ../_/components/sass/styles.scss */
+#text-5 h3:hover {
+  background: #18AE6A;
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+/*-for the newletter section for widget---*/
+/* line 1468, ../_/components/sass/styles.scss */
+#newletterWidget h3 {
+  border-bottom: none;
+  padding: 1em;
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  width: 100%;
+  margin: 2% auto; }
+
+/* line 1486, ../_/components/sass/styles.scss */
+.newsletterButton {
+  background: #009653;
+  padding: 1em;
+  width: 100%;
+  margin: 2% auto;
+  font-size: 1.30em;
+  border-radius: 3px;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  text-align: center; }
+
+/* line 1508, ../_/components/sass/styles.scss */
+.newsletterButton:hover {
+  background: #007A43;
+  box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25); }
+
+/* line 1516, ../_/components/sass/styles.scss */
+#newletterWidget a {
+  color: #fff; }
+
+/* line 1522, ../_/components/sass/styles.scss */
+#newletterWidget a:hover {
+  text-decoration: none; }
+
+/* line 1528, ../_/components/sass/styles.scss */
+#mc_embed_signup .mc-field-group .asterisk {
+  font-size: 1em; }
+
+/* line 1534, ../_/components/sass/styles.scss */
+#mailchimpSignUpPage h2 {
+  padding: 1em; }
+
+/*-------This is for the Get Involved Section-*/
+/* line 1542, ../_/components/sass/styles.scss */
+#getInvolvedWidget h3 {
+  color: white;
+  padding: 1em;
+  font-size: 1.5em;
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+  margin: 2% auto; }
+
+/*------#getInvolvedWidget a {
+
+    font-size: 1.15em;
+
+}---*/
+/* line 1566, ../_/components/sass/styles.scss */
+#getInvolvedWidget a:hover {
+  text-decoration: none; }
+
+/* line 1572, ../_/components/sass/styles.scss */
+.getInvolvedWidgetChild {
+  background: #53b1e5;
+  border-radius: 3px;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  width: 100%;
+  margin: 2% auto; }
+
+/* line 1588, ../_/components/sass/styles.scss */
+.getInvolvedWidgetChild:hover {
+  background: #7AC6EF;
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+/* line 1596, ../_/components/sass/styles.scss */
+.getInvolvedWidgetChild p {
+  padding: 1em;
+  text-align: center;
+  color: #fff;
+  font-size: 1em; }
+
+/*-------------This is going to be the widget links pages-*/
+/*----this is the how to Help Page-------*/
+/* line 1612, ../_/components/sass/styles.scss */
+#howToHelpPage h5.midGreenButton {
+  width: 50%;
+  margin: 1% 0 5%; }
+
+/* line 1620, ../_/components/sass/styles.scss */
+.page-id-82 {
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/howToHelpBackground4.jpg") no-repeat 0 0 fixed;
+  background-size: cover; }
+
+/*----This is for the sidebar contact--*/
+/* line 1630, ../_/components/sass/styles.scss */
+#contactSidebar .whiteCard {
+  padding-bottom: 10%; }
+
+/* line 1636, ../_/components/sass/styles.scss */
+#contactSidebar h3 {
+  padding: 1em;
+  font-size: 1.5em;
+  border: none;
+  text-align: center; }
+
+/* line 1648, ../_/components/sass/styles.scss */
+#contactSidebar h5 {
+  text-align: center;
+  font-size: 1.5em;
+  color: #000;
+  padding-top: 1em; }
+
+/* line 1660, ../_/components/sass/styles.scss */
+#contactSidebar p {
+  text-align: center;
+  font-size: 1.25em; }
+
+/*-----RCELogo---*/
+/* line 1670, ../_/components/sass/styles.scss */
+#RCELogoSidebar {
+  border: solid rgba(0, 0, 0, 0.1) 1px; }
+
+/* line 1676, ../_/components/sass/styles.scss */
+#RCELogoSidebar img {
+  padding: 5%; }
+
+/*------end side bar-*/
+/*-------------------------------------------------This is for the widget footer area----*/
+/*-----This is for the footerNavigation----------*/
+/* line 1688, ../_/components/sass/styles.scss */
+#footerNavigation {
+  width: 100%; }
+
+/* line 1694, ../_/components/sass/styles.scss */
+#footerNavigation h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.75em; }
+
+/*---------#footerNavigation h3 {
+
+    background: #0C85C6;
+
+    padding: 1em;
+
+    color: #fff;
+
+    text-align: center;
+
+    display: block;
+
+    margin: 2% 0;
+
+    border: none;
+
+    border-radius: 3px;
+
+    transition: all .25s ease;
+
+    cursor: pointer;
+
+}----*/
+/* line 1728, ../_/components/sass/styles.scss */
+#footerNavigation h3:hover {
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+/* line 1734, ../_/components/sass/styles.scss */
+#footerNavigation ul {
+  list-style: none;
+  width: 100%; }
+
+/* line 1742, ../_/components/sass/styles.scss */
+#footerNavigation ul li {
+  background: #53b1e5;
+  -webkit-transition: background .25s ease;
+  transition: background .25s ease;
+  display: block;
+  margin: 2% 0;
+  border-radius: 3px; }
+
+/* line 1758, ../_/components/sass/styles.scss */
+#footerNavigation ul li:hover {
+  background: #7AC6EF;
+  box-shadow: 0px 2px 5px 0px #aaaaaa; }
+
+/* line 1766, ../_/components/sass/styles.scss */
+#footerNavigation ul li a {
+  display: block;
+  padding: 1em;
+  color: white;
+  text-align: center; }
+
+/* line 1778, ../_/components/sass/styles.scss */
+#footerNavigation ul li a:hover {
+  text-decoration: none; }
+
+/*-------------This is the Footer area-*/
+/* line 1786, ../_/components/sass/styles.scss */
+#footer {
+  background: rgba(0, 0, 0, 0.1); }
+
+/* line 1792, ../_/components/sass/styles.scss */
+#footer h3.blueHeaders {
+  text-align: center; }
+
+/* line 1798, ../_/components/sass/styles.scss */
+#footer p {
+  color: #000;
+  text-align: left; }
+
+/* line 1806, ../_/components/sass/styles.scss */
+#footer #footerAboutUs {
+  width: 31%; }
+
+/* line 1812, ../_/components/sass/styles.scss */
+#footer #footerAboutUs p {
+  padding: 2% 5%; }
+
+/* line 1818, ../_/components/sass/styles.scss */
+#footer #footerNav {
+  display: block;
+  width: 30%;
+  border: none;
+  margin: 0 4%; }
+
+/* line 1830, ../_/components/sass/styles.scss */
+#footer-widgets.col-4 .block {
+  width: 100%;
+  padding-top: 6px; }
+
+/* line 1838, ../_/components/sass/styles.scss */
+#footer #footerContact {
+  width: 31%; }
+
+/* line 1844, ../_/components/sass/styles.scss */
+#footer .footerSiteMapDiv h3 {
+  width: 100%;
+  margin: 3% auto;
+  font-size: 1.2em; }
+
+/* line 1854, ../_/components/sass/styles.scss */
+#footer .footerSiteMapDiv h3 a {
+  color: #fff; }
+
+/* line 1860, ../_/components/sass/styles.scss */
+#footer #footerContact p {
+  font-size: 1em; }
+
+/* line 1866, ../_/components/sass/styles.scss */
+#footer #footerContact h5 {
+  font-size: 1.25em;
+  color: #000;
+  padding-top: 1em;
+  font-weight: bold; }
+
+/* line 1878, ../_/components/sass/styles.scss */
+#footer .footerSiteMapDiv #footer-widgets {
+  padding: 0;
+  border: none; }
+
+/* line 1886, ../_/components/sass/styles.scss */
+#footer #footerContact .whiteCard {
+  padding-bottom: 10%; }
+
+/* line 1892, ../_/components/sass/styles.scss */
+.footerSocialMediaLogin {
+  width: 100%;
+  margin: 10% 0 0 20%; }
+
+/* line 1900, ../_/components/sass/styles.scss */
+.footerSocialMediaLogin ul {
+  float: left; }
+
+/* line 1906, ../_/components/sass/styles.scss */
+.footerSocialMediaLogin ul li {
+  float: left;
+  margin: 0 0 0 5px;
+  display: inline-block; }
+
+/* line 1916, ../_/components/sass/styles.scss */
+.footerSocialMediaLogin ul li a {
+  padding: 1.10em;
+  font-size: inherit; }
+
+/*-----this is going to be the media quires-----*/
+@media screen and (max-width: 979px) {
+  /* line 1928, ../_/components/sass/styles.scss */
+  #footer #footerAboutUs {
+    width: 90%;
+    margin: 0 auto; }
+
+  /* line 1936, ../_/components/sass/styles.scss */
+  #footer #footerNav {
+    width: 90%;
+    margin: 0 auto; }
+
+  /* line 1944, ../_/components/sass/styles.scss */
+  #footer #footerContact {
+    width: 90%;
+    margin: 0 auto; } }
+/* ----------- iPad 3 and 4 ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 1956, ../_/components/sass/styles.scss */
+  footer#footer > div {
+    width: 100%; } }
+/* Portrait and Landscape Iphone 6 */
+@media only screen and (min-device-width: 350px) and (max-device-width: 667px) {
+  /*-----------------------------for the header Area's----*/
+  /*-bring the logo to the center-*/
+  /* line 1968, ../_/components/sass/styles.scss */
+  .headerLogo {
+    width: 100%; }
+
+  /* line 1974, ../_/components/sass/styles.scss */
+  .headerLogo > img {
+    margin: 0 auto;
+    display: block; }
+
+  /*-Fixing the headerSocialMediaLogin position and size-*/
+  /* line 1984, ../_/components/sass/styles.scss */
+  .headerSocialMediaLogin {
+    width: 100%;
+    margin: 5% 0 auto;
+    display: block; }
+
+  /* line 1994, ../_/components/sass/styles.scss */
+  .headerSocialMediaLogin ul li a {
+    padding: 2em;
+    background-size: 3em !important; }
+
+  /* line 2002, ../_/components/sass/styles.scss */
+  #footer #footerAboutUs {
+    width: 100%; }
+
+  /* line 2008, ../_/components/sass/styles.scss */
+  #footer #footerNav {
+    width: 90%; }
+
+  /* line 2014, ../_/components/sass/styles.scss */
+  #footer #footerContact {
+    width: 100%; } }
+/*-----------end iPhone6-----*/
+/*-------------for the iPhone5 -------*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  /*-----------------------------for the header Area's----*/
+  /*-----------------------------for the header Area's----*/
+  /*-bring the logo to the center-*/
+  /* line 2030, ../_/components/sass/styles.scss */
+  .headerLogo {
+    width: 100%; }
+
+  /* line 2036, ../_/components/sass/styles.scss */
+  .headerLogo > img {
+    margin: 0 auto;
+    display: block; }
+
+  /*-Fixing the headerSocialMediaLogin position and size-*/
+  /* line 2046, ../_/components/sass/styles.scss */
+  .headerSocialMediaLogin {
+    width: 100%;
+    margin: 7% 0 auto;
+    display: block; }
+
+  /* line 2056, ../_/components/sass/styles.scss */
+  .headerSocialMediaLogin ul li a {
+    padding: 1.5em;
+    background-size: 2.5em !important; }
+
+  /* line 2064, ../_/components/sass/styles.scss */
+  .blog .entry-title {
+    width: 100% !important; }
+
+  /* line 2070, ../_/components/sass/styles.scss */
+  footer#footer > div {
+    width: 100%; } }

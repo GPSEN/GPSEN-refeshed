@@ -1,0 +1,2072 @@
+/*-------
+
+	Programmer = Keith Murphy 
+	File = scriptsMap.js
+	date Created = 8_10_2015
+	lastMod = 8_10_2015
+------*/	
+.floatLeft {
+  float: left;
+}
+.markerInfoWindow {
+  h2 {
+    text-align: center;
+    font-size: 3em;
+  }
+  .floatLeft {
+    width: 45%;
+    margin: 2% auto;
+  }
+  img {
+
+  }
+  p {
+    font-size: 1.25em;
+    padding: 2%;
+  }
+
+}
+#mapDiv {
+  width: 75%;
+  height: 100%;
+  margin: 20% auto;
+}
+#map-canvas {
+  width: 100%;
+  height: 100%;
+}
+/*----Note---
+
+    link lite blue = background: #53b1e5;
+
+    link lite blue :hover = background: #7AC6EF;
+
+    darker blue = #0C85C6
+
+---*/
+
+/*----colors---
+
+    main blue = #20429c
+
+main light blue = #53b1e5
+
+-----*/
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+
+   v2.0 | 20110126
+
+   License: none (public domain)
+
+*/
+
+html, body, div, span, applet, object, iframe,
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+
+a, abbr, acronym, address, big, cite, code,
+
+del, dfn, em, img, ins, kbd, q, s, samp,
+
+small, strike, strong, sub, sup, tt, var,
+
+b, u, i, center,
+
+dl, dt, dd, ol, ul, li,
+
+fieldset, form, label, legend,
+
+table, caption, tbody, tfoot, thead, tr, th, td,
+
+article, aside, canvas, details, embed,
+
+figure, figcaption, footer, header, hgroup,
+
+menu, nav, output, ruby, section, summary,
+
+time, mark, audio, video {
+
+  margin: 0;
+
+  padding: 0;
+
+  border: 0;
+
+  font-size: 100%;
+
+  font: inherit;
+
+  vertical-align: baseline; }
+
+
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure,
+
+footer, header, hgroup, menu, nav, section {
+
+  display: block; }
+
+
+
+body {
+
+  line-height: 1; }
+
+
+
+ol, ul {
+
+  list-style: none; }
+
+
+
+blockquote, q {
+
+  quotes: none; }
+
+
+
+blockquote:before, blockquote:after,
+
+q:before, q:after {
+
+  content: '';
+
+  content: none; }
+
+
+
+table {
+
+  border-collapse: collapse;
+
+  border-spacing: 0; }
+
+
+
+/*-----------------------------------------------------helper classes----*/
+
+a:link {
+
+  text-decoration: none !important; }
+
+
+
+a :visited {
+
+  text-decoration: none !important; }
+
+
+
+a:hover {
+
+  text-decoration: none !important; }
+
+
+
+a:active {
+
+  text-decoration: none !important; }
+
+
+
+.clearBoth {
+
+  clear: both; }
+
+
+
+.centerText {
+
+  text-align: center; }
+
+
+
+.rightText {
+
+  text-align: right; }
+
+
+
+.floatRight {
+
+  float: right; }
+
+
+
+.floatLeft {
+
+  float: left; }
+
+
+
+.text-indent-50px {
+
+  text-indent: 25px; }
+
+
+
+.font-weight-bold {
+
+  font-weight: bold; }
+
+
+
+.removeBorder {
+
+  border: none !important; }
+
+
+
+.removeMarginBottom {
+
+  margin-bottom: 0 !important; }
+
+
+
+.removeMargin {
+
+  margin: 0 0 0 0 !important; }
+
+
+
+.addLiteMarginTop {
+
+  margin-top: 2% !important; }
+
+.displayBlock {
+
+  display: block;
+
+}
+
+.displayNone {
+
+  display: none;
+
+}
+
+.removeFormField {
+
+  visibility: hidden;
+
+  margin: 0;
+
+  padding: 0;
+
+  width: 0;
+
+  height: 0;
+
+}
+
+.imgCenter {
+
+  margin: 0 auto;
+
+  display: block; }
+
+
+
+.blueHeaders {
+
+  background: #0C85C6;
+
+  padding: .5em;
+
+  border-radius: 3px;
+
+  color: white;
+
+  line-height: 1em !important;
+
+  box-shadow: inset 0px -1px 2px 0px rgba(255, 255, 255, 0.25); }
+
+
+
+.greenHeaders {
+
+  color: #fff;
+
+  padding: .5em;
+
+  border-radius: 3px;
+
+  box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
+
+  background-color: #009653;
+
+  font-family: bitter; }
+
+
+
+.liteBlueButton {
+
+  background: #53b1e5;
+
+  border-radius: 3px;
+
+  border: none;
+
+  text-align: center;
+
+  box-shadow: 0px -1px 3px 0px rgba(255, 255, 255, 0.25) inset;
+
+  -webkit-transition: all .25s ease;
+
+  transition: all .25s ease;
+
+  color: #fff !important;
+
+  cursor: pointer; }
+
+
+
+.liteBlueButton a {
+
+  color: #fff !important;
+
+  display: block !important;
+
+  padding: 1em !important;
+
+}
+
+
+
+.liteBlueButton:Hover {
+
+  background: #7AC6EF;
+
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+
+
+.liteBlueButton:active {
+
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5); }
+
+
+
+.darkBlueButton {
+
+  background: #0C85C6;
+
+  padding: .5em;
+
+  color: #fff !important;
+
+  text-align: center;
+
+  display: block;
+
+  margin: 2% 0;
+
+  border-radius: 3px;
+
+  -webkit-transition: background .25s ease;
+
+  transition: background .25s ease;
+
+  cursor: pointer; }
+
+
+
+.darkBlueButton:hover {
+
+  background: #3296CB;
+
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+
+
+.darkBlueButton:active {
+
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5); }
+
+
+
+.accordionHeadersGrey {
+
+  background: #D6D6D6;
+
+  padding: .5em;
+
+  border-radius: 3px;
+
+  cursor: pointer;
+
+  -webkit-transition: all .25s ease;
+
+  transition: all .25s ease; }
+
+
+
+.accordionHeadersGrey:hover {
+
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+
+
+.midGreenButton {
+
+  background: #009653;
+
+  padding: .5em;
+
+  color: #fff;
+
+  border-radius: 3px;
+
+  -webkit-transition: all .25s ease-out;
+
+  transition: all .25s ease-out;
+
+  text-align: center;
+
+  cursor: pointer; }
+
+
+
+.midGreenButton:hover {
+
+  background: #007A43;
+
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+
+
+.whiteCard {
+
+  background: #fff;
+
+  border-radius: 3px;
+
+  box-shadow: 0px 1px 3px 0px #aaa;
+
+  padding: 2%; }
+
+
+
+.greySections {
+
+  background: rgba(0, 0, 0, 0.15);
+
+  padding: 1%;
+
+  border-radius: 3px; }
+
+
+
+/*-----------end helper classes-*/
+
+/*----------------general styles----*/
+
+.entry p {
+
+  font-size: 1.25em;
+
+  margin-left: .5em; }
+
+
+
+.contactInfomation {
+
+  width: 50%;
+
+  margin: 0 auto;
+
+  text-align: justify; }
+
+h3 {
+
+  font-size: 2em;
+
+}
+
+/*--------fontIcons-*/
+
+@font-face {
+
+  font-family: FontAwesome; }
+
+[data-icon]:before {
+
+  font-family: FontAwesome;
+
+  content: attr(data-icon);
+
+  speak: none; }
+
+
+
+.fa.floatRight {
+
+  vertical-align: middle; }
+
+/*-----backgroundImagesForPages---*/
+
+/*----becomePartnerPage--*/
+
+.page-id-552 {
+
+  background: url('http://gpsen.org/wp-content/uploads/2015/10/becomePartnerPage.jpg') no-repeat 0 0 fixed;
+
+  background-size: cover;
+
+}
+
+/*----partnersBenifitsPage---*/
+
+.page-id-584 {
+
+  background: url('http://gpsen.org/wp-content/uploads/2015/10/partnersBenifits.jpg') no-repeat 0 0 fixed;
+
+  background-size: cover;
+
+}
+
+/*----newsletterPage---*/
+
+.page-id-577 {
+
+  background: url('http://gpsen.org/wp-content/uploads/2015/10/signUpNewsletterPage.jpg') no-repeat 0 0 fixed;
+
+  background-size: cover;
+
+}
+
+/*---suggestNewsletterPage---*/
+
+.page-id-586 {
+
+  background: url('http://gpsen.org/wp-content/uploads/2015/10/suggestNewsletterItemPage.jpg') no-repeat 0 0 fixed;
+
+  background-size: cover;
+
+}
+
+/*--------------This is for the main #navigation------*/
+
+#navigation {
+
+  background: #0C85C6; }
+
+
+
+#navigation ul li {
+
+  background: #0C85C6;
+
+  -webkit-transition: all .15s ease;
+
+  transition: all .15s ease; }
+
+
+
+#navigation ul li:hover {
+
+  background: #ffffff !important;
+
+  box-shadow: 0px 2px 2px 0px #AAAAAA; }
+
+
+
+#navigation ul li a {
+
+  color: #fff;
+
+  -webkit-transition: color .15s ease !important;
+
+  transition: color .15s ease !important; }
+
+
+
+#navigation ul li a:hover {
+
+  color: #000; }
+
+
+
+#navigation ul .current_page_item {
+
+  background: #fff;
+
+  color: #000;
+
+  box-shadow: 0px 2px 2px 0px #AAAAAA; }
+
+
+
+/*----------------------------------------------------------This is for the sliders---*/
+
+/*---this removes the padding form the left side of the slider----*/
+
+.entry ul {
+
+  padding: 0; }
+
+
+
+/*---this is for the header section---*/
+
+#header {
+
+  padding-bottom: 20px;
+
+  padding-top: 20px;
+
+}
+
+.headerh1 {
+
+  margin: 3% 0 2% 0; }
+
+
+
+.headerh1 h1 {
+
+  border-bottom: 2px solid #20429c;
+
+  margin: 0; }
+
+
+
+.headerh1 h3 {
+
+  font-size: 1em;
+
+  border-bottom: 2px solid #20429c;
+
+  padding: 1% 0;
+
+  margin: 0; }
+
+
+
+.headerSocialMediaLogin {
+
+  width: 20%;
+
+  margin: 2% 0 0 2%; }
+
+
+
+.headerSocialMediaLogin ul {
+
+  float: left;
+
+  margin-top: 5%;
+
+}
+
+
+
+.headerSocialMediaLogin ul li {
+
+  float: left;
+
+  margin: 0 0 0 5px;
+
+  display: inline-block; }
+
+
+
+/*-----.headerSocialMediaLogin a img {
+
+    display: inline-block;
+
+    float: left;
+
+    width: 15%;
+
+    margin: 2% 0 0 5%;
+
+}---*/
+
+.headerSocialMediaLogin ul li a {
+
+  padding: 1.10em;
+
+  font-size: inherit; }
+
+
+
+.twitterIcon {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/twitter.png") no-repeat 0 0;
+
+  background-size: 2em;
+
+  -webkit-transition: background .25s ease-in;
+
+  transition: background .25s ease-in; }
+
+
+
+.twitterIcon:hover {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/twitterHover.png") no-repeat 0 0;
+
+  background-size: 2em; }
+
+
+
+.facebookIcon {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/facebook.png") no-repeat 0 0;
+
+  background-size: 2em;
+
+  -webkit-transition: background .25s ease-in;
+
+  transition: background .25s ease-in; }
+
+
+
+.facebookIcon:hover {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/facebookHover.png") no-repeat 0 0;
+
+  background-size: 2em; }
+
+
+
+.instagramIcon {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/instagram.png") no-repeat 0 0;
+
+  background-size: 2em;
+
+  -webkit-transition: background .25s ease-in;
+
+  transition: background .25s ease-in; }
+
+
+
+.instagramIcon:hover {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/instagramHover.png") no-repeat 0 0;
+
+  background-size: 2em; }
+
+
+
+.linkedInIcon {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/linkedIn.png") no-repeat 0 0;
+
+  background-size: 2em;
+
+  -webkit-transition: background .25s ease-in;
+
+  transition: background .25s ease-in; }
+
+
+
+.linkedInIcon:hover {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/08/linkedInHover.png") no-repeat 0 0;
+
+  background-size: 2em; }
+
+
+
+.youTubeIcon {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/youTube.png") no-repeat 0 0;
+
+  background-size: 2em;
+
+  -webkit-transition: background .5s ease-in;
+
+  transition: background .5s ease-in; }
+
+
+
+.youTubeIcon:hover {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/youTubeHover.jpg") no-repeat 0 0;
+
+  background-size: 2em; }
+
+
+
+/*---------------------------------------------------home page---*/
+
+.home #sidebar {
+
+  margin: 5% 0 0 0 !important; }
+
+
+
+.homeLeft {
+
+  margin: 5% 0 0 0; }
+
+
+
+.home {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/backgroundImage11500X1023.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+
+
+/*---------------------------------------------This is for the Members Page--------*/
+
+.page-id-9 {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/RCE-CentersPage2_1500X1023.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+
+
+/*-------------------This is for the blog page-----*/
+
+.blog {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/08/blogPageBackground.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+
+
+.blog .entry-title {
+
+  background: #009653;
+
+  width: 100%;
+
+  margin: 2% auto;
+
+  font-size: 1.30em;
+
+  border-radius: 3px;
+
+  -webkit-transition: all .25s ease;
+
+  transition: all .25s ease; }
+
+
+
+.blog .entry-title a {
+
+  color: #fff !important;
+
+  display: block;
+
+  padding: 1em;
+
+}
+
+
+
+.blog .entry-title:hover {
+
+  background: #007A43;
+
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+
+
+/*----------------------------------------This is for the newsPage------------*/
+
+.page-id-105 {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/newsPageBackground.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+
+
+#newsPage h2.blueHeaders {
+
+  margin: 12% 0 0 0; }
+
+
+
+.newsAccordionInnerDiv {
+
+  width: 45%;
+
+  margin: 0 2%;
+
+  display: inline-block; }
+
+
+
+.newsAccordionInnerDiv p {
+
+  margin: 0; }
+
+
+
+.newsAccordionInnerDiv p.liteBlueButton {
+
+  margin: 2% 0;
+
+  text-align: left;
+
+  padding: 1em;
+
+  font-size: 1em;
+
+}
+
+
+
+.lastArchivesDiv p:nth-child(even) {
+
+  display: none; }
+
+
+
+/*----------------------------------------for the About Page-------------*/
+
+.page-id-7 {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/10/aboutPageBackground.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+
+
+/*--.page-id-7 p {
+
+    font-size: 1.15em;
+
+}--*/
+
+#aboutPage > div.whiteCard {
+
+  display: inline-block;
+
+  width: 100%; }
+
+
+
+/*-----this is paragraph for logo text---*/
+
+#aboutPage > div.greySections .whiteCard .floatLeft:nth-child(2) {
+
+  margin: 5% 0 0 1%;
+
+  width: 50%; }
+
+
+
+.meaningLogoText {
+
+  background: #53b1e5;
+
+  border-radius: 3px;
+
+  box-shadow: 0px 1px 3px #aaa inset;
+
+  -webkit-transition: background .25s ease;
+
+  transition: background .25s ease;
+
+  margin: 0 auto; }
+
+
+
+.meaningLogoText:hover {
+
+  box-shadow: 0px -1px 3px #aaa inset;
+
+  background: #7AC6EF;
+
+  -webkit-transition: background .25s ease;
+
+  transition: background .25s ease; }
+
+
+
+.meaningLogoText h4 {
+
+  color: #ffffff;
+
+  font-size: 1em; }
+
+.meaningLogoText h4 a {
+
+  color: #ffffff;
+
+  padding: 1em;
+
+  display: block;
+
+}
+
+.meaningLogoText p {
+
+  display: none; }
+
+
+
+#aboutPage a:nth-child(3) {
+
+  text-align: center; }
+
+
+
+#aboutPage a:nth-child(3):hover {
+
+  text-decoration: none; }
+
+#aboutPage ul {
+
+  margin-left: .5em;
+
+}
+
+#aboutPage ul li {
+
+  font-size: 1.25em;
+
+  line-height: 2em;
+
+}
+
+#aboutPage ol {
+
+  font-size: 1.25em;
+
+  line-height: 2em;
+
+}
+
+/*--------------------------------------------Events Page---*/
+
+.page-id-49 {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/08/eventsPageBackground.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+.page-id-49 article.post-49 h1.title {
+
+  display: none;
+
+}
+
+.eventsPage .greySections .floatLeft {
+
+  box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+
+  border: none;
+
+  margin-right: 4%;
+
+}
+
+
+
+/*-----this is the coordinatingCommitteePage---*/
+
+#coordinatingCommitteePage ul {
+
+  overflow: visible;
+
+  margin-left: 5%;
+
+}
+
+/*--------------------------------------This is for the FAQ page------*/
+
+.page-id-45 {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/FAQBackground.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+
+
+#FAQAccordion {
+
+  margin-top: 10%; }
+
+
+
+/*----#FAQAccordion > div {
+
+    background: #EFEFEF;
+
+    padding: 2%;
+
+    border-radius: 3px;
+
+} -*/
+
+#FAQAccordion p {
+
+  font-size: 1.15em; }
+
+
+
+#FAQAccordion h3 {
+
+  background: #D6D6D6;
+
+  padding: .5em;
+
+  border-radius: 3px;
+
+  cursor: pointer;
+
+  -webkit-transition: all .25s ease;
+
+  transition: all .25s ease;
+
+  line-height: 1.15em;
+
+  font-size: 1.5em; }
+
+
+
+#FAQAccordion h3:hover {
+
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+
+
+#FAQAccordion .listLinkButton {
+
+  background: #53b1e5;
+
+  -webkit-transition: all .25s ease;
+
+  transition: all .25s ease;
+
+  display: block;
+
+  width: 95%;
+
+  margin: 2% auto;
+
+  border-radius: 3px;
+
+  box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25); }
+
+
+
+#FAQAccordion .listLinkButton:hover {
+
+  background: #7AC6EF;
+
+  box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25); }
+
+
+
+#FAQAccordion .listLinkButton a {
+
+  display: block;
+
+  padding: 1em;
+
+  color: white; }
+
+
+
+#FAQAccordion .listLinkButton a:hover {
+
+  text-decoration: none; }
+
+
+
+#FAQAccordion .listLinkButton a:before {
+
+  font-family: FontAwesome;
+
+  content: '\f08e';
+
+  vertical-align: middle;
+
+  padding-right: 3%; }
+
+
+
+/*-------------------------------------------Partners Page----*/
+
+.page-id-100 {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/09/partnersPageBackground4.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+
+
+#partnersPage table td {
+
+  border-top: none; }
+
+
+
+#partnersPage table td a {
+
+  color: #000; }
+
+
+
+#partnersPage table td a:hover {
+
+  text-decoration: none; }
+
+
+
+#partnersPage table td:hover {
+
+  background: #D6D6D6; }
+
+
+
+#partnersMapDiv {
+
+  margin: 0 0 4% 0; }
+
+
+
+/*-------------------------------------------#resourcePage--*/
+
+.page-id-11 {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/08/resourcesPageBackground.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+
+
+/*----------------------------#governancePage----*/
+
+#governancePage h4.liteBlueButton {
+
+  padding: .5em;
+
+  text-align: left; }
+
+
+
+#governancePage ul {
+
+  overflow: visible;
+
+  padding: 0 0 0 5%; }
+
+
+
+#governancePage ul li {
+
+  list-style-type: disc; }
+
+
+
+#governancePage .greySections:nth-of-type(2) ul li > ul li {
+
+  list-style-type: circle; }
+
+
+
+#governancePage .governancePolicies .floatLeft {
+
+  width: 45%;
+
+  margin: 0 2%; }
+
+
+
+.governancePolicies .floatLeft p {
+
+  margin: 0; }
+
+
+
+#governancePage .floatLeft p.liteBlueButton {
+
+  margin: 2% 0;
+
+  text-align: left;
+
+  font-size: 1em;
+
+  padding: 1em;
+
+}
+
+
+
+.governancePolicies .floatLeft:nth-of-type(1) p:nth-of-type(3),
+
+.governancePolicies .floatLeft:nth-of-type(1) p:nth-of-type(5),
+
+.governancePolicies .floatLeft:nth-of-type(1) p:nth-of-type(4),
+
+#governancePage > div:nth-child(6) > div > div:nth-child(2) > p:nth-child(2) {
+
+  display: none; }
+
+
+
+.governancePolicies .floatLeft:nth-of-type(2) p:nth-of-type(3) {
+
+  display: none; }
+
+
+
+#governanceAccordion .floatLeft {
+
+  width: 45%;
+
+  margin: 0 2%;
+
+  display: inline-block; }
+
+
+
+#governanceAccordion .floatLeft p {
+
+  text-align: left; }
+
+
+
+#governanceAccordion .floatLeft p:nth-child(even) {
+
+  display: none; }
+
+
+
+/*-------------formPage---*/
+
+.gform_wrapper .ginput_complex label {
+
+  margin-top: 0;
+
+}
+
+.gform_wrapper .top_label select.medium {
+
+  width: 100%;
+
+}
+
+/*-----donatePage---*/
+
+#gform_2 {
+
+  margin: 10% 0 0 0; }
+
+
+
+.gform_wrapper ul li.gfield {
+
+  margin-bottom: 15px; }
+
+
+
+#gform_2 h3 {
+
+  color: #fff;
+
+  padding: .5em;
+
+  border-radius: 3px;
+
+  box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
+
+  background-color: #009653;
+
+  font-family: bitter; }
+
+/*-----------becomePartnerPage--------*/
+
+#becomePartnerPage h3.blueHeaders {
+
+  margin: 5% 0 0;
+
+}
+
+#becomePartnerPage h3.greenHeaders {
+
+  cursor: pointer;
+
+}
+
+#becomePartnerPage ul {
+
+  overflow: visible;
+
+  margin: 0 0 15px 5%;
+
+}
+
+#becomePartnerPage ul ul{
+
+  overflow: visible;
+
+  margin: 0 0 15px 5%;
+
+}
+
+/*------------------------------------------widget areas-------*/
+
+/*---------widget sidebar--*/
+
+/*---This is for the donate Section----*/
+
+#text-5 a:hover {
+
+  text-decoration: none; }
+
+
+
+#text-5 h3 {
+
+  background: #009653;
+
+  -webkit-transition: all .25s ease;
+
+  transition: all .25s ease;
+
+  color: #fff;
+
+  border: none;
+
+  padding: 1em;
+
+  text-align: center;
+
+  width: 100%;
+
+  margin: 1% auto;
+
+  font-size: 1.5em;
+
+  border-radius: 3px;
+
+  box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25); }
+
+
+
+#text-5 h3:hover {
+
+  background: #18AE6A;
+
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+
+
+/*-for the newletter section for widget---*/
+
+#newletterWidget h3 {
+
+  border-bottom: none;
+
+  padding: 1em;
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 1.5em;
+
+  width: 100%;
+
+  margin: 2% auto; }
+
+
+
+.newsletterButton {
+
+  background: #009653;
+
+  padding: 1em;
+
+  width: 100%;
+
+  margin: 2% auto;
+
+  font-size: 1.30em;
+
+  border-radius: 3px;
+
+  -webkit-transition: all .25s ease;
+
+  transition: all .25s ease;
+
+  text-align: center; }
+
+
+
+.newsletterButton:hover {
+
+  background: #007A43;
+
+  box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25); }
+
+
+
+#newletterWidget a {
+
+  color: #fff; }
+
+
+
+#newletterWidget a:hover {
+
+  text-decoration: none; }
+
+
+
+#mc_embed_signup .mc-field-group .asterisk {
+
+  font-size: 1em; }
+
+
+
+#mailchimpSignUpPage h2 {
+
+  padding: 1em; }
+
+
+
+/*-------This is for the Get Involved Section-*/
+
+#getInvolvedWidget h3 {
+
+  color: white;
+
+  padding: 1em;
+
+  font-size: 1.5em;
+
+  border-radius: 4px;
+
+  border: none;
+
+  width: 100%;
+
+  margin: 2% auto; }
+
+
+
+/*------#getInvolvedWidget a {
+
+    font-size: 1.15em;
+
+}---*/
+
+#getInvolvedWidget a:hover {
+
+  text-decoration: none; }
+
+
+
+.getInvolvedWidgetChild {
+
+  background: #53b1e5;
+
+  border-radius: 3px;
+
+  -webkit-transition: all .25s ease;
+
+  transition: all .25s ease;
+
+  width: 100%;
+
+  margin: 2% auto; }
+
+
+
+.getInvolvedWidgetChild:hover {
+
+  background: #7AC6EF;
+
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+
+
+.getInvolvedWidgetChild p {
+
+  padding: 1em;
+
+  text-align: center;
+
+  color: #fff;
+
+  font-size: 1em; }
+
+
+
+/*-------------This is going to be the widget links pages-*/
+
+/*----this is the how to Help Page-------*/
+
+#howToHelpPage h5.midGreenButton {
+
+  width: 50%;
+
+  margin: 1% 0 5%; }
+
+
+
+.page-id-82 {
+
+  background: url("http://gpsen.org/wp-content/uploads/2015/07/howToHelpBackground4.jpg") no-repeat 0 0 fixed;
+
+  background-size: cover; }
+
+
+
+/*----This is for the sidebar contact--*/
+
+#contactSidebar .whiteCard {
+
+  padding-bottom: 10%; }
+
+
+
+#contactSidebar h3 {
+
+  padding: 1em;
+
+  font-size: 1.5em;
+
+  border: none;
+
+  text-align: center; }
+
+
+
+#contactSidebar h5 {
+
+  text-align: center;
+
+  font-size: 1.5em;
+
+  color: #000;
+
+  padding-top: 1em; }
+
+
+
+#contactSidebar p {
+
+  text-align: center;
+
+  font-size: 1.25em; }
+
+
+
+/*-----RCELogo---*/
+
+#RCELogoSidebar {
+
+  border: solid rgba(0, 0, 0, 0.1) 1px; }
+
+
+
+#RCELogoSidebar img {
+
+  padding: 5%; }
+
+
+
+/*------end side bar-*/
+
+/*-------------------------------------------------This is for the widget footer area----*/
+
+/*-----This is for the footerNavigation----------*/
+
+#footerNavigation {
+
+  width: 100%; }
+
+
+
+#footerNavigation h2 {
+
+  margin-top: 0;
+
+  margin-bottom: 0;
+
+  font-size: 1.75em; }
+
+
+
+/*---------#footerNavigation h3 {
+
+    background: #0C85C6;
+
+    padding: 1em;
+
+    color: #fff;
+
+    text-align: center;
+
+    display: block;
+
+    margin: 2% 0;
+
+    border: none;
+
+    border-radius: 3px;
+
+    transition: all .25s ease;
+
+    cursor: pointer;
+
+}----*/
+
+#footerNavigation h3:hover {
+
+  box-shadow: 0px 2px 5px 0px #aaa; }
+
+
+
+#footerNavigation ul {
+
+  list-style: none;
+
+  width: 100%; }
+
+
+
+#footerNavigation ul li {
+
+  background: #53b1e5;
+
+  -webkit-transition: background .25s ease;
+
+  transition: background .25s ease;
+
+  display: block;
+
+  margin: 2% 0;
+
+  border-radius: 3px; }
+
+
+
+#footerNavigation ul li:hover {
+
+  background: #7AC6EF;
+
+  box-shadow: 0px 2px 5px 0px #aaaaaa; }
+
+
+
+#footerNavigation ul li a {
+
+  display: block;
+
+  padding: 1em;
+
+  color: white;
+
+  text-align: center; }
+
+
+
+#footerNavigation ul li a:hover {
+
+  text-decoration: none; }
+
+
+
+/*-------------This is the Footer area-*/
+
+#footer {
+
+  background: rgba(0, 0, 0, 0.1); }
+
+
+
+#footer h3.blueHeaders {
+
+  text-align: center; }
+
+
+
+#footer p {
+
+  color: #000;
+
+  text-align: left; }
+
+
+
+#footer #footerAboutUs {
+
+  width: 31%; }
+
+
+
+#footer #footerAboutUs p {
+
+  padding: 2% 5%; }
+
+
+
+#footer #footerNav {
+
+  display: block;
+
+  width: 30%;
+
+  border: none;
+
+  margin: 0 4%; }
+
+
+
+#footer-widgets.col-4 .block {
+
+  width: 100%;
+
+  padding-top: 6px; }
+
+
+
+#footer #footerContact {
+
+  width: 31%; }
+
+
+
+#footer .footerSiteMapDiv h3 {
+
+  width: 100%;
+
+  margin: 3% auto;
+
+  font-size: 1.2em; }
+
+
+
+#footer .footerSiteMapDiv h3 a {
+
+  color: #fff; }
+
+
+
+#footer #footerContact p {
+
+  font-size: 1em; }
+
+
+
+#footer #footerContact h5 {
+
+  font-size: 1.25em;
+
+  color: #000;
+
+  padding-top: 1em;
+
+  font-weight: bold; }
+
+
+
+#footer .footerSiteMapDiv #footer-widgets {
+
+  padding: 0;
+
+  border: none; }
+
+
+
+#footer #footerContact .whiteCard {
+
+  padding-bottom: 10%; }
+
+
+
+.footerSocialMediaLogin {
+
+  width: 100%;
+
+  margin: 10% 0 0 20%; }
+
+
+
+.footerSocialMediaLogin ul {
+
+  float: left; }
+
+
+
+.footerSocialMediaLogin ul li {
+
+  float: left;
+
+  margin: 0 0 0 5px;
+
+  display: inline-block; }
+
+
+
+.footerSocialMediaLogin ul li a {
+
+  padding: 1.10em;
+
+  font-size: inherit; }
+
+
+
+/*-----this is going to be the media quires-----*/
+
+@media screen and (max-width: 979px) {
+
+  #footer #footerAboutUs {
+
+    width: 90%;
+
+    margin: 0 auto; }
+
+
+
+  #footer #footerNav {
+
+    width: 90%;
+
+    margin: 0 auto; }
+
+
+
+  #footer #footerContact {
+
+    width: 90%;
+
+    margin: 0 auto; } }
+
+/* ----------- iPad 3 and 4 ----------- */
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+
+  footer#footer > div {
+
+    width: 100%; } }
+
+/* Portrait and Landscape Iphone 6 */
+
+@media only screen and (min-device-width: 350px) and (max-device-width: 667px) {
+
+  /*-----------------------------for the header Area's----*/
+
+  /*-bring the logo to the center-*/
+
+  .headerLogo {
+
+    width: 100%; }
+
+
+
+  .headerLogo > img {
+
+    margin: 0 auto;
+
+    display: block; }
+
+
+
+  /*-Fixing the headerSocialMediaLogin position and size-*/
+
+  .headerSocialMediaLogin {
+
+    width: 100%;
+
+    margin: 5% 0 auto;
+
+    display: block; }
+
+
+
+  .headerSocialMediaLogin ul li a {
+
+    padding: 2em;
+
+    background-size: 3em !important; }
+
+
+
+  #footer #footerAboutUs {
+
+    width: 100%; }
+
+
+
+  #footer #footerNav {
+
+    width: 90%; }
+
+
+
+  #footer #footerContact {
+
+    width: 100%; } }
+
+/*-----------end iPhone6-----*/
+
+/*-------------for the iPhone5 -------*/
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+
+  /*-----------------------------for the header Area's----*/
+
+  /*-----------------------------for the header Area's----*/
+
+  /*-bring the logo to the center-*/
+
+  .headerLogo {
+
+    width: 100%; }
+
+
+
+  .headerLogo > img {
+
+    margin: 0 auto;
+
+    display: block; }
+
+
+
+  /*-Fixing the headerSocialMediaLogin position and size-*/
+
+  .headerSocialMediaLogin {
+
+    width: 100%;
+
+    margin: 7% 0 auto;
+
+    display: block; }
+
+
+
+  .headerSocialMediaLogin ul li a {
+
+    padding: 1.5em;
+
+    background-size: 2.5em !important; }
+
+
+
+  .blog .entry-title {
+
+    width: 100% !important; }
+
+
+
+  footer#footer > div {
+
+    width: 100%; } }
