@@ -1,0 +1,32 @@
+
+
+/*--------------This is for the main #navigation------*/
+#navigation {
+	background: #0C85C6;
+}
+
+#navigation ul li {
+	background: #0C85C6;
+	-webkit-transition: all .15s ease;
+	transition: all .15s ease;
+}
+
+#navigation ul li:hover {
+	background: #ffffff !important;
+	box-shadow: 0px 2px 2px 0px #AAAAAA;
+}
+
+#navigation ul li a {
+	color: #fff;
+	-webkit-transition: color .15s ease !important;
+	transition: color .15s ease !important;
+}
+
+#navigation ul li a:hover {
+	color: #000; }
+
+#navigation ul .current_page_item {
+	background: #fff;
+	color: #000;
+	box-shadow: 0px 2px 2px 0px #AAAAAA;
+}

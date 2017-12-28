@@ -1,12 +1,13 @@
 /*
 Theme Name: Woo Child
-Description: Sample Child Theme
+Description: GPSEN Child Theme
 Author: WooThemes
 Template: canvas
 Version: 1.0
+@summary Check under build css folder for the canvas styles import NOT HERE!!!
 */
 
-@import url("../canvas/style.css");
+/*@import url("../canvas/style.css");*/
 
 /*
 

@@ -1,0 +1,61 @@
+/*----Note---
+    link lite blue = background: #53b1e5;
+    link lite blue :hover = background: #7AC6EF;
+    darker blue = #0C85C6
+---*/
+/*----colors---
+    main blue = #20429c
+main light blue = #53b1e5
+-----*/
+/*----------------general styles----*/
+// fixing Kim addition
+body.custom-background {
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.entry p {
+	font-size: 1em;
+	//margin-left: .5em;
+}
+
+.contactInformation {
+	width: 50%;
+	margin: 0 auto;
+	text-align: justify;
+}
+h3 {
+	font-size: 2em;
+}
+
+/*----------------------------------------------------------This is for the sliders---*/
+/*---this removes the padding form the left side of the slider----*/
+.entry ul {
+	padding: 0;
+}
+
+/*--------fontIcons-*/
+@font-face {
+	font-family: FontAwesome;
+}
+[data-icon]:before {
+	font-family: FontAwesome;
+	content: attr(data-icon);
+	speak: none;
+}
+
+.fa.floatRight {
+	vertical-align: middle;
+}
+
+/*-----mixins---*/
+@mixin whiteCard() {
+	background: #fff;
+	border-radius: 3px;
+	box-shadow: 0px 1px 3px 0px #aaa;
+	padding: 2%;
+}
+@mixin graySections() {
+	background: rgba(0, 0, 0, 0.15);
+	padding: 1%;
+	border-radius: 3px;
+}

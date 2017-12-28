@@ -55,7 +55,7 @@ class SucuriScanInterface
 
         wp_register_style(
             'sucuriscan1',
-            SUCURISCAN_URL . '/inc/css/styles.css',
+            SUCURISCAN_URL . '/inc/css/custom.css',
             array(/* empty */),
             $asset
         );

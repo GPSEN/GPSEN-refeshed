@@ -1,0 +1,120 @@
+/*-----this is going to be the media quires-----*/
+@media screen and (max-width: 979px) {
+	.sustainingPartners h2 {
+		width: 65%;
+		-webkit-transform: translateY(0);
+		-moz-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-o-transform: translateY(0);
+		transform: translateY(0);
+		margin: 0 auto;
+	}
+	#footer #footerAboutUs {
+		width: 90%;
+		margin: 0 auto; }
+
+	#footer #footerNav {
+		width: 90%;
+		margin: 0 auto; }
+
+	#footer #footerContact {
+		width: 90%;
+		margin: 0 auto; } }
+
+/* ----------- iPad 3 and 4 ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 768px) {
+	footer#footer > div {
+		width: 100%;
+	}
+	.sustainingPartners h2 {
+		text-align: center;
+	}
+
+}
+/* Portrait and Landscape Iphone 6 */
+@media only screen and (max-device-width: 667px) {
+	/*-----------------------------for the header Area's----*/
+	/*-bring the logo to the center-*/
+	#navigation .current_page_item a {
+		color: #000;
+	}
+	.headerLogo {
+		width: 100%;
+	}
+
+	.headerLogo > img {
+		margin: 0 auto;
+		display: block;
+	}
+
+	/*-Fixing the headerSocialMediaLogin position and size-*/
+	.headerSocialMediaLogin {
+		width: 100% !important;
+		margin: 5% 0 auto;
+		display: block;
+	}
+
+	.headerSocialMediaLogin ul li a {
+		padding: 2em;
+		background-size: 3em !important; }
+
+	#footer #footerAboutUs {
+		width: 100%;
+	}
+
+	#footer #footerNav {
+		width: 90%;
+	}
+
+	#footer #footerContact {
+		width: 100%;
+	}
+	.sustainingPartners h2 {
+		text-align: center;
+	}
+}
+/*-----------end iPhone6-----*/
+/*-------------for the iPhone5 -------*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+	/*-----------------------------for the header Area's----*/
+	/*-----------------------------for the header Area's----*/
+	/*-bring the logo to the center-*/
+	#navigation .current_page_item a {
+		color: #000;
+	}
+	.headerLogo {
+		width: 100%;
+	}
+	.headerLogo > img {
+		margin: 0 auto;
+		display: block; }
+
+	/*-Fixing the headerSocialMediaLogin position and size-*/
+	.headerSocialMediaLogin {
+		width: 100%;
+		margin: 7% 0 auto;
+		display: block; }
+
+	.headerSocialMediaLogin ul li a {
+		padding: 1.5em;
+		background-size: 2.5em !important; }
+
+	.blog .entry-title {
+		width: 100% !important; }
+
+	footer#footer > div {
+		width: 100%;
+	}
+	#partnersPage h2 {
+		text-align: center;
+	}
+	.sustainingPartners h2 {
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.sustainingPartners h2 {
+		text-align: center;
+	}
+}

@@ -1,0 +1,461 @@
+/*-----backgroundImagesForPages---*/
+/*----becomePartnerPage--*/
+.page-id-552 {
+	background: url('http://gpsen.org/wp-content/uploads/2015/10/becomePartnerPage.jpg') no-repeat 0 0 fixed;
+	background-size: cover;
+}
+/*----partnersBenefitsPage---*/
+.page-id-584 {
+	background: url('http://gpsen.org/wp-content/uploads/2015/10/partnersBenifits.jpg') no-repeat 0 0 fixed;
+	background-size: cover;
+}
+/*----newsletterPage---*/
+.page-id-577 {
+	background: url('http://gpsen.org/wp-content/uploads/2015/10/signUpNewsletterPage.jpg') no-repeat 0 0 fixed;
+	background-size: cover;
+}
+/*---suggestNewsletterPage---*/
+.page-id-586 {
+	background: url('http://gpsen.org/wp-content/uploads/2015/10/suggestNewsletterItemPage.jpg') no-repeat 0 0 fixed;
+	background-size: cover;
+}
+
+/*---------------------------------------------------home page---*/
+.home #sidebar {
+	margin: 5% 0 0 0 !important; }
+
+.homeLeft {
+	margin: 5% 0 0 0;
+}
+.homeLeft h2 {
+	text-align: center;
+	font-size: 1.75em;
+}
+
+.home {
+	background: url("http://gpsen.org/wp-content/uploads/2016/04/spring_2016.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+
+.home .whiteCard {
+	padding-bottom: 2%;
+}
+
+/*---------------------------------------------This is for the Members Page--------*/
+.page-id-9 {
+	background: url("http://gpsen.org/wp-content/uploads/2015/07/RCE-CentersPage2_1500X1023.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+
+/*-------------------This is for the blog page-----*/
+.blog {
+	background: url("http://gpsen.org/wp-content/uploads/2015/08/blogPageBackground.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+
+.blog .entry-title {
+	background: #009653;
+	width: 100%;
+	margin: 2% auto;
+	font-size: 1.30em;
+	border-radius: 3px;
+	-webkit-transition: all .25s ease;
+	transition: all .25s ease; }
+
+.blog .entry-title a {
+	color: #fff !important;
+	display: block;
+	padding: 1em;
+}
+
+.blog .entry-title:hover {
+	background: #007A43;
+	box-shadow: 0px 2px 5px 0px #aaa; }
+
+/*----------------------------------------This is for the newsPage------------*/
+.page-id-105 {
+	background: url("http://gpsen.org/wp-content/uploads/2015/07/newsPageBackground.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+#newsPage {
+	margin: 3% auto 2%;
+}
+#newsPage h2.blueHeaders {
+	margin: 12% 0 0 0; }
+
+.newsAccordionInnerDiv {
+	width: 44%;
+	margin: 0 2%;
+	display: inline-block; }
+
+.newsAccordionInnerDiv p {
+	margin: 0; }
+
+.newsAccordionInnerDiv p.liteBlueButton {
+	margin: 2% 0;
+	text-align: left;
+	padding: 1em;
+	font-size: 1em;
+}
+
+.lastArchivesDiv p:nth-child(even) {
+	display: none; }
+
+/*----------------------------------------for the About Page-------------*/
+.page-id-7 {
+	background: url("http://gpsen.org/wp-content/uploads/2015/11/aboutPageBackground.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+
+/*--.page-id-7 p {
+    font-size: 1.15em;
+}--*/
+#aboutPage > div.whiteCard {
+	display: inline-block;
+	width: 100%; }
+
+/*-----this is paragraph for logo text---*/
+#aboutPage > div.greySections .whiteCard .floatLeft:nth-child(2) {
+	margin: 5% 0 0 1%;
+	width: 50%; }
+
+.meaningLogoText {
+	background: #53b1e5;
+	border-radius: 3px;
+	box-shadow: 0px 1px 3px #aaa inset;
+	-webkit-transition: background .25s ease;
+	transition: background .25s ease;
+	margin: 0 auto; }
+
+.meaningLogoText:hover {
+	box-shadow: 0px -1px 3px #aaa inset;
+	background: #7AC6EF;
+	-webkit-transition: background .25s ease;
+	transition: background .25s ease; }
+
+.meaningLogoText h4 {
+	color: #ffffff;
+	font-size: 1em; }
+.meaningLogoText h4 a {
+	color: #ffffff;
+	padding: 1em;
+	display: block;
+}
+.meaningLogoText p {
+	display: none; }
+
+#aboutPage a:nth-child(3) {
+	text-align: center; }
+
+#aboutPage a:nth-child(3):hover {
+	text-decoration: none; }
+#aboutPage ul {
+	margin-left: 4%;
+	overflow: visible;
+}
+#aboutPage ul li {
+	font-size: 1em;
+	line-height: 2em;
+}
+#aboutPage ol {
+	font-size: 1em;
+	line-height: 2em;
+}
+/*--------------------------------------------Events Page---*/
+.page-id-49 {
+	background: url("http://gpsen.org/wp-content/uploads/2015/08/eventsPageBackground.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+.page-id-49 article.post-49 h1.title {
+	display: none;
+}
+.eventsPage .greySections .floatLeft {
+	box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+	border: none;
+	margin-right: 4%;
+}
+
+/*-----this is the coordinatingCommitteePage---*/
+#coordinatingCommitteePage ul {
+	overflow: visible;
+	margin-left: 5%;
+}
+/*--------------------------------------This is for the FAQ page------*/
+.page-id-45 {
+	background: url("http://gpsen.org/wp-content/uploads/2015/07/FAQBackground.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+#FQAPage {
+	ul.parentFAQUL {
+		margin: 0 0 0 6%;
+	}
+}
+#FAQAccordion {
+	margin-top: 5%;
+}
+
+/*----#FAQAccordion > div {
+    background: #EFEFEF;
+    padding: 2%;
+    border-radius: 3px;
+} -*/
+#FAQAccordion p {
+	font-size: 1.15em; }
+
+#FAQAccordion h3 {
+	background: #D6D6D6;
+	padding: .5em;
+	border-radius: 3px;
+	cursor: pointer;
+	-webkit-transition: all .25s ease;
+	transition: all .25s ease;
+	line-height: 1.15em;
+	font-size: 1.5em; }
+
+#FAQAccordion h3:hover {
+	box-shadow: 0px 2px 5px 0px #aaa; }
+
+#FAQAccordion .listLinkButton {
+	background: #53b1e5;
+	-webkit-transition: all .25s ease;
+	transition: all .25s ease;
+	display: block;
+	width: 95%;
+	margin: 2% auto;
+	border-radius: 3px;
+	box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25); }
+
+#FAQAccordion .listLinkButton:hover {
+	background: #7AC6EF;
+	box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25); }
+
+#FAQAccordion .listLinkButton a {
+	display: block;
+	padding: 1em;
+	color: white; }
+
+#FAQAccordion .listLinkButton a:hover {
+	text-decoration: none; }
+
+#FAQAccordion .listLinkButton a:before {
+	font-family: FontAwesome;
+	content: '\f08e';
+	vertical-align: middle;
+	padding-right: 3%; }
+
+/*-------------------------------------------Partners Page----*/
+.page-id-100 {
+	background: url("http://gpsen.org/wp-content/uploads/2016/05/Hostas.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+#becomePartnerPage > div > div > p:nth-child(1),
+#becomePartnerPage > div > div > p:nth-child(2) {
+	font-size: 1.25em;
+}
+#becomePartnerPage .indentLeftH4 {
+	width: 75%;
+	margin-left: 5%
+}
+#becomePartnerPage ul.indentLeftUL {
+	margin-left: 10%;
+}
+
+#partnersPage table td {
+	border-top: none; }
+
+#partnersPage table td a {
+	color: #000;
+	display: block;
+}
+
+#partnersPage table td a:hover {
+	text-decoration: none; }
+
+#partnersPage table td:hover {
+	background: #D6D6D6; }
+
+#partnersMapDiv {
+	margin: 0 0 4% 0;
+}
+#partnersPage .fa-map-marker {
+	float: right;
+	font-size: .70em;
+	margin-top: 2%;
+
+}
+#partnersPage .fa-map-marker:before {
+	vertical-align: -webkit-super;
+	vertical-align: super;
+}
+#partnersPage .partnerMobileH2 {
+	display: none;
+}
+#partnersPage .partnersTableDiv > p {
+	display: none;
+}
+.partnerRedirectButton {
+	transition: all .25s ease;
+	box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25);
+}
+.partnerRedirectButton .greenHeaders {
+	padding: 0;
+}
+.partnerRedirectButton a {
+	display: block;
+	color: #fff;
+	padding: .5em;
+
+}
+.partnerRedirectButton a:hover {
+	display: block;
+	color: #fff;
+
+}
+.partnerRedirectButton:hover    {
+	background: #18AE6A;
+	box-shadow: 0px 2px 5px 0px #aaa;
+}
+.partnerRedirectButton a:active {
+	color: #fff;
+}
+/*---new Partners page--*/
+.sustainingPartners h2 {
+	-webkit-transform: translateY(60%);
+	-moz-transform: translateY(60%);
+	-ms-transform: translateY(60%);
+	-o-transform: translateY(60%);
+	transform: translateY(60%);
+	font-size: 1em;
+}
+.sustainingPartners h2 a {
+	display: block;
+}
+.sustainingPartners h2 a:hover {
+	color: #fff;
+}
+.sustainingPartnersNew h2 {
+	margin: 0 auto;
+	text-align: center;
+	font-size: 1em;
+	width: 65%;
+}
+.sustainingPartnersNew br {
+	display: none;
+}
+
+/*---Google map--*/
+#map-canvas {
+	width:600px;
+	height:400px;
+}
+.partnersMapCanvasParent {
+	width: 90%;
+}
+/*---------------------------------RCE Networks----*/
+#globalActionProgrammeOnESD {
+	ul {
+		list-style-type: none;
+		margin: 0 0 0 1.5%;
+	}
+}
+/*-------------------------------------------#resource Page--*/
+.page-id-11 {
+	background: url("http://gpsen.org/wp-content/uploads/2015/08/resourcesPageBackground.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+
+/*----------------------------#governancePage----*/
+#governancePage h4.liteBlueButton {
+	text-align: left; }
+
+#governancePage ul {
+	overflow: visible;
+	padding: 0 0 0 5%; }
+
+#governancePage ul li {
+	list-style-type: disc; }
+
+#governancePage .greySections:nth-of-type(2) ul li > ul li {
+	list-style-type: circle; }
+
+#governancePage .governancePolicies .floatLeft {
+	width: 45%;
+	margin: 0 2%; }
+
+
+#governancePage .floatLeft .liteBlueButton {
+	margin: 2% 0;
+	text-align: left;
+	font-size: 1em;
+	padding: 0;
+}
+
+.governancePolicies .floatLeft:nth-of-type(2) p:nth-of-type(3) {
+	display: none; }
+
+#governanceAccordion .floatLeft {
+	width: 45%;
+	margin: 0 2%;
+	display: inline-block; }
+
+#governanceAccordion .floatLeft p {
+	text-align: left; }
+
+/**#governanceAccordion .floatLeft p:nth-child(even) {
+  display: none; }**/
+
+/*-------------formPage---*/
+.gform_wrapper .ginput_complex label {
+	margin-top: 0;
+}
+.gform_wrapper .top_label select.medium {
+	width: 100%;
+}
+/*sai*/
+#gform_fields_14 > li {
+	margin-top: 5%;
+}
+
+
+/*-----donatePage---*/
+.page-id-600 {
+	background: url("http://gpsen.org/wp-content/uploads/2015/12/donateBackground.jpg") no-repeat 0 0 fixed;
+	background-size: cover;
+}
+.page-id-600 h2.greenHeaders {
+	font-size: 1.75em;
+}
+#gform_2 {
+	margin: 10% 0 0 0; }
+
+.gform_wrapper ul li.gfield {
+	margin-bottom: 15px; }
+
+#gform_2 h3 {
+	color: #fff;
+	padding: .5em;
+	border-radius: 3px;
+	box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
+	background-color: #009653;
+	font-family: bitter; }
+#gform_5 > div.gform_heading > h3 > span::before {
+	content: '' !important;
+}
+h3.gform_title .fa-chevron-down::before {
+	content: '' !important;
+}
+/*-----------becomePartnerPage--------*/
+#becomePartnerPage h3.greenHeaders {
+	cursor: pointer;
+}
+#becomePartnerPage h3.blueHeaders {
+	cursor: pointer;
+}
+#becomePartnerPage ul {
+	overflow: visible;
+	margin: 0 0 15px 5%;
+}
+#becomePartnerPage ul ul{
+	overflow: visible;
+	margin: 0 0 15px 5%;
+}
+/*-------------contactPage-----*/
+.page-id-928 {
+	background: url("http://gpsen.org/wp-content/uploads/2016/01/contactBackgroundOne.jpg") no-repeat 0 0 fixed;
+	background-size: cover;
+}
+/*---------partnerPledgePage---------*/
+#partnerPledgePage {
+
+}

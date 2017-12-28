@@ -1,0 +1,207 @@
+/*------------------------------------------widget areas-------*/
+/*---------widget sidebar--*/
+
+/*#largeWidgetButton a {*/
+/*color: #fff;*/
+/*}*/
+
+/*#largeWidgetButton a:hover {*/
+/*text-decoration: none;*/
+/*}*/
+
+/*!*---This is for the donate Section----*!*/
+/*#donateSidebarButton a:hover {*/
+/*text-decoration: none; }*/
+.GPSENSidebar {
+
+}
+.GPSENSidebar h3 {
+	background: #3296CB;
+	border-bottom: none;
+	color: white;
+	text-align: center;
+	font-size: 1.5em;
+	width: 100%;
+	margin: 2% auto;
+	padding: 0 0 0 0;
+}
+.GPSENSidebar h3:hover {
+	background: #3296CB;
+	box-shadow: 0px 2px 5px 0px #aaa;
+}
+.GPSENSidebar h3:active {
+	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.GPSENSidebar h3 a {
+	color: white;
+	padding: 1em;
+	display: block;
+}
+.donateSidebarButton h3 {
+	background: #009653;
+	-webkit-transition: all .25s ease;
+	transition: all .25s ease;
+	color: #fff;
+	border: none;
+	text-align: center;
+	width: 100%;
+	margin: 1% auto;
+	font-size: 1.5em;
+	border-radius: 3px;
+	box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25);
+}
+.donateSidebarButton h3:hover {
+	background: #18AE6A;
+	box-shadow: 0px 2px 5px 0px #aaa;
+}
+/*-for the newletter section for widget---*/
+//.GPSENSidebar h3 {
+//border-bottom: none;
+//padding: 1em;
+//color: white;
+//text-align: center;
+//font-size: 1.5em;
+//width: 100%;
+//margin: 2% auto;
+//}
+
+.newsletterButton {
+	background: #009653;
+	padding: 1em;
+	width: 100%;
+	margin: 2% auto;
+	font-size: 1.30em;
+	border-radius: 3px;
+	-webkit-transition: all .25s ease;
+	transition: all .25s ease;
+	text-align: center;
+}
+
+.newsletterButton:hover {
+	background: #007A43;
+	box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25);
+}
+
+#mc_embed_signup .mc-field-group .asterisk {
+	font-size: 1em;
+}
+
+#mailchimpSignUpPage h2 {
+	padding: 1em;
+}
+
+#mailchimpSignUpPage .gform_title {
+	color: #fff;
+	padding: .5em;
+	border-radius: 3px;
+	box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
+	background-color: #009653;
+	font-family: bitter;
+}
+
+/*-------This is for the Get Involved Section-*/
+//#getInvolvedWidget h3 {
+//color: white;
+//padding: 1em;
+//font-size: 1.5em;
+//border-radius: 4px;RCELogoSidebar
+//width: 100%;
+//margin: 2% auto; }
+
+/*------#getInvolvedWidget a {
+    font-size: 1.15em;
+}---*/
+#getInvolvedWidget a:hover {
+	text-decoration: none; }
+
+.sidebarAccordionWidgetChild {
+	background: #53b1e5;
+	border-radius: 3px;
+	-webkit-transition: all .25s ease;
+	transition: all .25s ease;
+	width: 100%;
+	margin: 2% auto; }
+
+.sidebarAccordionWidgetChild:hover {
+	background: #7AC6EF;
+	box-shadow: 0px 2px 5px 0px #aaa; }
+
+.sidebarAccordionWidgetChild p {
+	padding: 1em;
+	text-align: center;
+	color: #fff;
+	font-size: 1em; }
+
+/*-------------This is going to be the widget links pages-*/
+/*----this is the how to Help Page-------*/
+#howToHelpPage h5.midGreenButton {
+	width: 50%;
+	margin: 1% 0 5%; }
+
+.page-id-82 {
+	background: url("http://gpsen.org/wp-content/uploads/2015/07/howToHelpBackground4.jpg") no-repeat 0 0 fixed;
+	background-size: cover; }
+
+/*----This is for the sidebar contact--*/
+#contactSidebar .whiteCard {
+	padding-bottom: 10%; }
+
+#contactSidebar h3 {
+	font-size: 1.5em;
+	border: none;
+	text-align: center;
+}
+#contactSidebar .darkBlueButton {
+	padding: 0;
+}
+
+#contactSidebar h5 {
+	text-align: center;
+	font-size: 1.5em;
+	color: #000;
+	padding-top: 1em; }
+
+#contactSidebar p {
+	text-align: center;
+	font-size: 1.25em; }
+
+/*-----RCELogo---*/
+#RCELogoSidebar {
+	border: solid rgba(0, 0, 0, 0.1) 1px; }
+
+#RCELogoSidebar img {
+	padding: 5%; }
+
+/*------end side bar-*/
+/*-------------------------------------------------This is for the widget footer area----*/
+/*-----This is for the footerNavigation----------*/
+#footerNavigation {
+	width: 100%; }
+
+#footerNavigation h2 {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 1.75em;
+	padding: .5em;
+}
+
+/*---------#footerNavigation h3 {
+    background: #0C85C6;
+    padding: 1em;
+    color: #fff;
+    text-align: center;
+    display: block;
+    margin: 2% 0;
+    border: none;
+    border-radius: 3px;
+    transition: all .25s ease;
+    cursor: pointer;
+}----*/
+
+
+.nav-close:before,
+.nav-home:before {
+	line-height: 1 !important;
+}
+
+

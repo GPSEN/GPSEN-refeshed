@@ -44,7 +44,7 @@ module.exports = function(grunt){
 	    autoperfixer: {
 			dist: {
 				files: {
-					'_/components/sass/*.scss': '_/css/styles.css'
+					'_/components/sass/*.scss': '_/css/custom.css'
 				}//end files
 			}//end dist 
 		},// end autoperfixer
