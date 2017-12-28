@@ -1,48 +1,33 @@
 <?php
 
-/*
+require_once(__DIR__ . '/lib/gpsen_enqueue_scripts.php');
+require_once(__DIR__ . '/lib/gpsen_widgets.php');
 
-Add any custom functions to your child theme here
 
-*/
-
-// Move footer widgetized area inside footer container
-
-/*--add_action( 'init', 'woo_move_footer_widgets' );
-
-function woo_move_footer_widgets() {
-
-remove_action( 'woo_footer_top', 'woo_footer_sidebars', 30 );
-
-add_action( 'woo_footer_inside', 'woo_footer_sidebars', 30 );
-
-}--/
-/*-- This will move footer widgets throughout the site by placing where you want to add_action to in the template*/
-
-/*------Widgetizing area---*/
-/* Register our sidebars and widgetized areas.
+/**
+ * @summary Make sure the class exists and call its init()
  */
 
-//function gpsen_custom_scripts()
-//{
-//    wp_enqueue_scripts('gpsen-partners-google-maps', 'http://maps.google.com/maps/api/js?key=AIzaSyAx2cypTFsOW1AHcwnBJZh9AqyxycX0VKs&sensor=false');
-//}
-//add_action('wp_enqueue_scripts', 'gpsen_custom_scripts');
-//
+if ( class_exists('gpsen_widgets') ) {
 
+	$gpsen_widgets = new gpsen_widgets();
+	$gpsen_widgets->init();
 
-function footer_nav_widgets_init()
-{
-	register_sidebar(array(
-		'name'          => 'Footer Quick Links Area',
-		'id'            => 'footer_nav',
-		'before_widget' => '<div id="footerNavigation">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="liteBlueButton">',
-		'after_title'   => '</h2>',
-	));
 }
-add_action( 'widgets_init', 'footer_nav_widgets_init' );
+
+
+/**
+ * @summary Make sure the class exists and call its init()
+ */
+
+if ( class_exists('gpsen_enqueue_scripts') ) {
+
+	$gpsen_enqueue = new gpsen_enqueue_scripts();
+	$gpsen_enqueue->init();
+
+}
+
+
 
 /*---adding Page supports to posts---*/
 function add_page_support()
