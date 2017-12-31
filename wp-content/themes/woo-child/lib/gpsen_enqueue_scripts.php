@@ -22,8 +22,8 @@ class gpsen_enqueue_scripts {
 
 		wp_enqueue_script('gpsen-jquery-ui', get_stylesheet_directory_uri() . '/build/jqueryUI.bundle.js', ['jquery'], '1.0.0', true );
 		wp_enqueue_script('gpsen-bootstrap-js', get_stylesheet_directory_uri() . '/build/bootstrap.bundle.js', ['jquery', 'gpsen-jquery-ui'], '1.0.0', true );
-		wp_enqueue_script('gpsen-old-bundle', get_stylesheet_directory_uri() . '/build/old.bundle.js', ['jquery', 'gpsen-jquery-ui', 'gpsen-bootstrap'], '1.0.0', true );
-		wp_enqueue_script('gpsen-main-bundle', get_stylesheet_directory_uri() . '/build/main.bundle.js', ['jquery', 'gpsen-jquery-ui', 'gpsen-bootstrap'], '1.0.0', true );
+		wp_enqueue_script('gpsen-old-bundle', get_stylesheet_directory_uri() . '/build/old.bundle.js', ['jquery', 'gpsen-jquery-ui', 'gpsen-bootstrap-js'], '1.0.0', true );
+		wp_enqueue_script('gpsen-main-bundle', get_stylesheet_directory_uri() . '/build/main.bundle.js', ['jquery', 'gpsen-jquery-ui', 'gpsen-bootstrap-js'], '1.0.0', true );
 
 	}
 

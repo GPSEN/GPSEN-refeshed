@@ -5,7 +5,7 @@
 	Last Mod =  8-5-2015
 */
 
-const oldReplace = jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
 	///////////////////////////////////Widget Areas 
 	//// This is for the widget sidebar movement
 	var $sidebar   = $("#sidebar"), 
@@ -369,4 +369,3 @@ const oldReplace = jQuery(document).ready(function($) {
 	//$confirmationArea.append($message);
 }); //end ready
 
-module.exports = oldReplace();
