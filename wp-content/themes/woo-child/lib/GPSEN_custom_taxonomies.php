@@ -40,6 +40,7 @@ class GPSEN_custom_taxonomies {
 			'query_var'         => true,
 			'show_in_rest' => true,
 			'public' => true,
+			'rewrite' => ['slug' => 'gpsen_partners'],
 		];
 
 		register_taxonomy( $taxonomy, $object_type, $args);

@@ -18,6 +18,7 @@ class GPSEN_widgets {
 	/**
 	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
 	 * @summary Build the footer navigation custom widget
+	 * @link https://developer.wordpress.org/reference/functions/register_sidebar/
 	*/
 
 	public function footer_nav_widgets_init () {

@@ -26,6 +26,7 @@ class GPSEN_custom_post_types {
 	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
 	 * @summary Build partners posts here so we can use them in the loop
 	 * on the partners page over hardcoded HTML
+	 * @link https://developer.wordpress.org/reference/functions/register_post_type/
 	 * @return void
 	*/
 
@@ -53,11 +54,15 @@ class GPSEN_custom_post_types {
 			'public' => true,
 			'publicly_queryable' => true,
 			'hierarchical' => true,
-			'rewrite' => ['slug' => 'gpsen-partners'],
+			'rewrite' => ['slug' => 'gpsen_partners'],
 			'taxonomies' => ['partners_categories'],
 			'menu_position' => 6,
 			'supports' => ['title', 'thumbnail', 'custom-fields', 'slug' ],
 			'capability_type'     => 'post',
+			'show_in_admin_bar'   => true,
+			'show_in_nav_menus'   => true,
+			'has_archive' => true,
+			'show_in_rest' => true,
 		];
 
 		register_post_type('gpsen_partners', $args );
