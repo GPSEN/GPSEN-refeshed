@@ -7,7 +7,7 @@
  * @summary Class to create custom widgets
 */
 
-class gpsen_widgets {
+class GPSEN_widgets {
 
 	public function init () {
 		add_action( 'widgets_init', [$this, 'footer_nav_widgets_init'] );

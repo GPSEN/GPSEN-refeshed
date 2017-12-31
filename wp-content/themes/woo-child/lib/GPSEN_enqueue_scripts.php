@@ -6,7 +6,7 @@
  * @summary Class for enqueuing scripts and styles
 */
 
-class gpsen_enqueue_scripts {
+class GPSEN_enqueue_scripts {
 
 	public function init () {
 

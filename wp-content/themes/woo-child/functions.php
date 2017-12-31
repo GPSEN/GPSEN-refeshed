@@ -1,16 +1,19 @@
 <?php
 
-require_once(__DIR__ . '/lib/gpsen_enqueue_scripts.php');
-require_once(__DIR__ . '/lib/gpsen_widgets.php');
+
+require_once( __DIR__ . '/lib/GPSEN_widgets.php' );
+require_once( __DIR__ . '/lib/GPSEN_enqueue_scripts.php' );
+require_once( __DIR__ . '/lib/GPSEN_custom_taxonomies.php');
+require_once( __DIR__ . '/lib/GPSEN_custom_post_types.php' );
 
 
 /**
  * @summary Make sure the class exists and call its init()
  */
 
-if ( class_exists('gpsen_widgets') ) {
+if ( class_exists( 'GPSEN_widgets' ) ) {
 
-	$gpsen_widgets = new gpsen_widgets();
+	$gpsen_widgets = new GPSEN_widgets();
 	$gpsen_widgets->init();
 
 }
@@ -20,16 +23,28 @@ if ( class_exists('gpsen_widgets') ) {
  * @summary Make sure the class exists and call its init()
  */
 
-if ( class_exists('gpsen_enqueue_scripts') ) {
+if ( class_exists( 'GPSEN_enqueue_scripts' ) ) {
 
-	$gpsen_enqueue = new gpsen_enqueue_scripts();
+	$gpsen_enqueue = new GPSEN_enqueue_scripts();
 	$gpsen_enqueue->init();
 
 }
 
 
-//if ( class_exists('GPSEN_cc'))
 
+if ( class_exists('GPSEN_custom_taxonomies') ) {
+
+	$gpsen_custom_taxonomies = new GPSEN_custom_taxonomies();
+	$gpsen_custom_taxonomies->init();
+
+}
+
+if ( class_exists('GPSEN_custom_post_types') ) {
+
+	$gpsen_custom_post_types = new GPSEN_custom_post_types();
+	$gpsen_custom_post_types->init();
+
+}
 
 
 /*---adding Page supports to posts---*/
