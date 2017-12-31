@@ -28,6 +28,10 @@ if ( class_exists('gpsen_enqueue_scripts') ) {
 }
 
 
+//if ( class_exists('GPSEN_cc'))
+
+
+
 /*---adding Page supports to posts---*/
 function add_page_support()
 {
