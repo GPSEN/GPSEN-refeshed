@@ -85,6 +85,13 @@ get_header();
 				woo_loop_after();
 
 				?>
+                    <div class="greySections">
+                        <div class="whiteCard">
+                                <div id="gpsen-partners-map" style="height: 500px;"></div>
+<!--                                <div class="row"><iframe src="https://fusiontables.google.com/embedviz?q=select+col2+from+1l4O3nrOYzUbPCrctBcpdKEU1ZQ2BYfrJnp1hdcXo+where+col5+%3D+'Current'&amp;viz=MAP&amp;h=false&amp;lat=45.510103317624385&amp;lng=-122.66615210753514&amp;t=1&amp;z=11&amp;l=col2&amp;y=5&amp;tmplt=7&amp;hml=GEOCODABLE" width="700" height="300" frameborder="no" scrolling="no"></iframe></div>-->
+                            <div class="clearBoth"></div>
+                        </div>
+                    </div>
                 </div><!--end partnersPage-->
             </section><!-- /#main -->
 

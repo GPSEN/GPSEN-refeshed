@@ -36,12 +36,6 @@
       ga('send', 'pageview');
 
     </script>
-
-    <!--Google Maps API-->
-    <script type="text/javascript"
-         src="http://maps.google.com/maps/api/js?key=AIzaSyAx2cypTFsOW1AHcwnBJZh9AqyxycX0VKs">
-    </script>
-
 </head>
 <body <?php body_class(); ?>>
 

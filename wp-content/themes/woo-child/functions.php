@@ -5,7 +5,7 @@ require_once( __DIR__ . '/lib/GPSEN_widgets.php' );
 require_once( __DIR__ . '/lib/GPSEN_enqueue_scripts.php' );
 require_once( __DIR__ . '/lib/GPSEN_custom_taxonomies.php');
 require_once( __DIR__ . '/lib/GPSEN_custom_post_types.php' );
-
+require_once( __DIR__ . '/lib/GPSEN_rest_api.php');
 
 /**
  * @summary Make sure the class exists and call its init()
@@ -43,6 +43,13 @@ if ( class_exists('GPSEN_custom_post_types') ) {
 
 	$gpsen_custom_post_types = new GPSEN_custom_post_types();
 	$gpsen_custom_post_types->init();
+
+}
+
+if ( class_exists('GPSEN_rest_api') ) {
+
+	$gpsen__rest_api = new GPSEN_rest_api();
+	$gpsen__rest_api->init();
 
 }
 
