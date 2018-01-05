@@ -79,6 +79,7 @@ class GPSEN_custom_post_types {
 	public function gpsen_remove_partners_metaboxes () {
 
 		remove_meta_box( 'woothemes-settings', 'gpsen_partners', 'normal');
+		remove_meta_box( 'mymetabox_revslider_0', 'gpsen_partners', 'normal');
 
 	}
 

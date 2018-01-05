@@ -16,7 +16,10 @@ require_once( __DIR__ . '/lib/GPSEN_posts.php');
 
 get_header();
 
-//$page_template = woo_get_page_template();
+
+if ( class_exists('GPSEN_posts') ) {
+	$gpsen_posts = new GPSEN_posts();
+}
 
 ?>
     <!-- #content Starts -->
@@ -46,21 +49,27 @@ get_header();
 				<?php
 
 				woo_loop_before();
-				echo "<h2 class=\"greenHeaders\">Contributing Partners</h2>";
-                if ( class_exists('GPSEN_posts') ) {
 
-                    $gpsen_posts = new GPSEN_posts();
+                if ( class_exists('GPSEN_posts') ) {
+                    echo "<h2 class=\"greenHeaders\">Sustaining Partners</h2>";
+                    $sustaining_tax = [
+                        [
+	                        'taxonomy' => 'partners_categories',
+	                        'field' => 'slug',
+	                        'terms' => 'sustaining-partners',
+                        ]
+                    ];
+	                $gpsen_posts->gpsen_build_sustaining_partners_posts( $sustaining_tax );
+
+
+                    echo "<h2 class=\"greenHeaders\">Contributing Partners</h2>";
 
                     $custom_terms = get_terms( 'partners_categories' );
+                    $reordered_terms = [$custom_terms[1], $custom_terms[0], $custom_terms[2]];
 
-//                    echo '<pre>';
-//	                var_dump($custom_terms);
-//                    echo '</pre>';
+                    if ( !empty($reordered_terms) ) {
 
-
-                    if ( !empty($custom_terms) ) {
-
-                        foreach ( $custom_terms as $term ) {
+                        foreach ( $reordered_terms as $term ) {
 	                        wp_reset_query();
 
 	                        $tax = [
@@ -71,9 +80,6 @@ get_header();
                                 ]
 	                        ];
 
-//                            echo '<pre>';
-//                                var_dump($term->slug);
-//                            echo '</pre>';
 	                        $gpsen_posts->gpsen_build_partners_posts( $tax, $term );
 
                         }
@@ -85,11 +91,10 @@ get_header();
 				woo_loop_after();
 
 				?>
-                    <div class="greySections">
+                    <div class="greySections addLiteMarginTop">
                         <div class="whiteCard">
                                 <div id="gpsen-partners-map" style="height: 500px;"></div>
-<!--                                <div class="row"><iframe src="https://fusiontables.google.com/embedviz?q=select+col2+from+1l4O3nrOYzUbPCrctBcpdKEU1ZQ2BYfrJnp1hdcXo+where+col5+%3D+'Current'&amp;viz=MAP&amp;h=false&amp;lat=45.510103317624385&amp;lng=-122.66615210753514&amp;t=1&amp;z=11&amp;l=col2&amp;y=5&amp;tmplt=7&amp;hml=GEOCODABLE" width="700" height="300" frameborder="no" scrolling="no"></iframe></div>-->
-                            <div class="clearBoth"></div>
+                                <div class="clearBoth"></div>
                         </div>
                     </div>
                 </div><!--end partnersPage-->

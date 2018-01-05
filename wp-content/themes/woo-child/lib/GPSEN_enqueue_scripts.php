@@ -18,6 +18,7 @@ class GPSEN_enqueue_scripts {
 	public function gpsen_enqueue_styles () {
 
 		wp_enqueue_style('gpsen-main', get_stylesheet_directory_uri() . '/build/css/main.css', [], '', 'all' );
+		wp_enqueue_style('gpsen-partners', get_stylesheet_directory_uri() . '/build/css/partners.css', [], '', 'all' );
 
 	}
 
