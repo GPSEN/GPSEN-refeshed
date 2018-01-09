@@ -243,7 +243,11 @@ class GPSEN_posts {
 				$gpsen_news_archives_posts_query->the_post();
 
 				echo '<div>Testing</div>';
+				$metadata = get_post_meta(get_the_ID(), 'gpsen_news_archives_attachment', true);
 
+				echo '<pre>';
+					var_dump($metadata);
+				echo '</pre>';
 
 			}
 			wp_reset_postdata();

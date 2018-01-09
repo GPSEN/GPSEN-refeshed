@@ -20,7 +20,9 @@ class GPSEN_custom_post_types {
 
 		add_action( 'init', [$this, 'gpsen_news_archives_custom_post_type'] );
 		add_action( 'add_meta_boxes', [$this, 'gpsen_add_news_archives_metaboxes'] );
-		add_action( 'save_post', [$this, 'gpsen_save_news_archives_data'] );
+		add_action( 'add_meta_boxes', [$this, 'gpsen_delete_news_archives_metaboxes'] );
+		add_action( 'save_post', [$this, 'gpsen_save_news_archives_data'], 10, 3 );
+		add_action('post_edit_form_tag', [$this, 'gpsen_update_edit_form'] );
 		add_action( 'add_meta_boxes', [$this, 'gpsen_remove_news_archives_metaboxes'] );
 	}
 
@@ -138,8 +140,21 @@ class GPSEN_custom_post_types {
 		// Define the custom attachment for posts
 		add_meta_box(
 			'gpsen_news_archives_attachment',
-			'Add News Archive Attachments',
+			'Add a News Archive Attachment',
 			[$this, 'gpsen_news_archives_attachment'],
+			'gpsen_news_archives',
+			'normal'
+		);
+
+	}
+
+	public function gpsen_delete_news_archives_metaboxes () {
+
+		// Define the custom attachment for posts
+		add_meta_box(
+			'gpsen_delete_news_archives_attachment',
+			'Delete the News Archive Attachment',
+			[$this, 'gpsen_delete_news_archives_attachment'],
 			'gpsen_news_archives',
 			'normal'
 		);
@@ -149,24 +164,126 @@ class GPSEN_custom_post_types {
 
 	/**
 	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
-	 * @summary Factory for WP_QUERY global
+	 * @summary Build the metabox for uploading files
 	 * @link https://codex.wordpress.org/Function_Reference/wp_nonce_field
 	 * @return void
 	*/
 
 	public function gpsen_news_archives_attachment () {
-		wp_nonce_field( plugin_basename( __FILE__ ), 'wp_custom_attachment_nonce' );
+		wp_nonce_field( plugin_basename( __FILE__ ), 'gpsen_news_archives_attachment_nonce' );
 
+		// For the file up load
 		$html = '';
 
-		$html .= '<p class="description">Upload your file here:</p>';
+		$html .= '<label for="gpsen_news_archives_attachment" class="description">Upload your file here:<br>';
 		$html .= '<input type="file" id="gpsen_news_archives_attachment" name="gpsen_news_archives_attachment" value="">';
+		$html .= '</label><br>';
 
 		echo $html;
+
+	}
+
+
+	public function gpsen_delete_news_archives_attachment () {
+		wp_nonce_field( plugin_basename( __FILE__ ), 'gpsen_news_archives_attachment_nonce' );
+
+		$html = '';
+		$metadata = get_post_meta(get_the_ID(), 'gpsen_news_archives_attachment', true);
+		$filename = basename($metadata['file']);
+
+		$html .= "<input type='checkbox' value='{$filename}' id='gpsen_news_archives_attachment_checkbox'>";
+		$html .= "<label for=\"gpsen_news_archives_attachment_checkbox\">{$filename}</label>";
+
+		echo $html;
+
 	}
 
 
 
+	/**
+	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
+	 * @summary Build the metabox for uploading files
+	 * @link https://code.tutsplus.com/articles/attaching-files-to-your-posts-using-wordpress-custom-meta-boxes-part-1--wp-22291
+	 * @link http://codex.wordpress.org/Function_Reference/wp_upload_bits
+	 * @link http://codex.wordpress.org/Function_Reference/wp_handle_upload
+	 * @param int $id
+	 * @return int $id
+	 */
+
+	public function gpsen_save_news_archives_data ($id, $post, $update) {
+
+		$id = $post->ID;
+
+		/* --- security verification --- */
+
+		if ( !wp_verify_nonce($_POST['gpsen_news_archives_attachment_nonce'], plugin_basename(__FILE__)) ) {
+
+			return $id;
+
+		} // end if
+
+		if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
+
+			return $id;
+
+		} // end if
+
+		if ( 'page' == $_POST['post_type'] ) {
+
+			if (!current_user_can('edit_page', $id)) {
+				return $id;
+			} // end if
+
+		} else {
+
+			if ( !current_user_can('edit_page', $id) ) {
+				die('testing else');
+				return $id;
+			} // end if
+
+		} // end if
+
+		/* - end security verification - */
+
+		// Make sure the file array isn't empty
+		if ( !empty($_FILES['gpsen_news_archives_attachment']['name']) ) {
+
+			// Setup the array of supported file types. In this case, it's just PDF.
+			$supported_types = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',];
+
+			// Get the file type of the upload
+			$arr_file_type = wp_check_filetype( basename($_FILES['gpsen_news_archives_attachment']['name']) );
+			$uploaded_type = $arr_file_type['type'];
+
+			// Check if the type is supported. If not, throw an error.
+			if ( in_array($uploaded_type, $supported_types) ) {
+				// Use the WordPress API to upload the file
+				$upload = wp_upload_bits( $_FILES['gpsen_news_archives_attachment']['name'], null, file_get_contents($_FILES['gpsen_news_archives_attachment']['tmp_name']) );
+
+				if (isset($upload['error']) && $upload['error'] != 0) {
+
+					wp_die( 'There was an error uploading your file. The error is: ' . $upload['error'] );
+
+				} else {
+
+					add_post_meta( $id, 'gpsen_news_archives_attachment', $upload );
+					update_post_meta( $id, 'gpsen_news_archives_attachment', $upload );
+
+				} // end if/else
+
+			} else {
+
+				wp_die( "The file type that you've uploaded is not a PDF/DOC/DOCX." );
+
+			} // end if/else
+
+		} // end if
+
+	}
+
+	public function gpsen_update_edit_form () {
+		echo 'enctype="multipart/form-data"';
+	}
 
 
 	/**
