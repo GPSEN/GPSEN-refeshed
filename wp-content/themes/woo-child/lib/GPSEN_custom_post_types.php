@@ -15,10 +15,13 @@ class GPSEN_custom_post_types {
 	 */
 
 	public function init () {
-
 		add_action( 'init', [$this, 'gpsen_partner_custom_post_type'] );
 		add_action( 'add_meta_boxes', [$this, 'gpsen_remove_partners_metaboxes'] );
 
+		add_action( 'init', [$this, 'gpsen_news_archives_custom_post_type'] );
+		add_action( 'add_meta_boxes', [$this, 'gpsen_add_news_archives_metaboxes'] );
+		add_action( 'save_post', [$this, 'gpsen_save_news_archives_data'] );
+		add_action( 'add_meta_boxes', [$this, 'gpsen_remove_news_archives_metaboxes'] );
 	}
 
 
@@ -80,6 +83,102 @@ class GPSEN_custom_post_types {
 
 		remove_meta_box( 'woothemes-settings', 'gpsen_partners', 'normal');
 		remove_meta_box( 'mymetabox_revslider_0', 'gpsen_partners', 'normal');
+
+	}
+
+
+	/**
+	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
+	 * @summary Build New Archives
+	 * @link https://developer.wordpress.org/reference/functions/register_post_type/
+	 * @return void
+	 */
+
+	public function gpsen_news_archives_custom_post_type () {
+
+		$labels = [
+			'name' => _x('News Archives', 'News Archives', 'gpsen'),
+			'singular_name' => _x('News Archive', 'News Archive', 'gpsen'),
+			'menu_name'          => _x( 'News Archives', 'admin menu', 'gpsen' ),
+			'name_admin_bar'     => _x( 'News Archive', 'add new on admin bar', 'gpsen' ),
+			'add_new'            => _x( 'Add New', 'book', 'gpsen' ),
+			'add_new_item'       => __( 'Add New News Archive', 'gpsen' ),
+			'new_item'           => __( 'New News Archive', 'gpsen' ),
+			'edit_item'          => __( 'Edit News Archive', 'gpsen' ),
+			'view_item'          => __( 'View News Archive', 'gpsen' ),
+			'all_items'          => __( 'All News Archives', 'gpsen' ),
+			'search_items'       => __( 'Search News Archives', 'gpsen' ),
+			'parent_item_colon'  => __( 'Parent News Archives:', 'gpsen' ),
+			'not_found'          => __( 'No Partner found.', 'gpsen' ),
+			'not_found_in_trash' => __( 'No Partner found in Trash.', 'gpsen' )
+		];
+
+		$args = [
+			'labels' => $labels,
+			'public' => true,
+			'publicly_queryable' => true,
+			'hierarchical' => true,
+			'rewrite' => ['slug' => 'gpsen_news_archives'],
+			'taxonomies' => ['gpsen_news_archives_categories'],
+			'menu_position' => 7,
+			'supports' => ['title', ],
+			'capability_type'     => 'post',
+			'show_in_admin_bar'   => true,
+			'show_in_nav_menus'   => true,
+			'has_archive' => true,
+			'show_in_rest' => true,
+		];
+
+		register_post_type('gpsen_news_archives', $args );
+
+	}
+
+	public function gpsen_add_news_archives_metaboxes () {
+
+		// Define the custom attachment for posts
+		add_meta_box(
+			'gpsen_news_archives_attachment',
+			'Add News Archive Attachments',
+			[$this, 'gpsen_news_archives_attachment'],
+			'gpsen_news_archives',
+			'normal'
+		);
+
+	}
+
+
+	/**
+	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
+	 * @summary Factory for WP_QUERY global
+	 * @link https://codex.wordpress.org/Function_Reference/wp_nonce_field
+	 * @return void
+	*/
+
+	public function gpsen_news_archives_attachment () {
+		wp_nonce_field( plugin_basename( __FILE__ ), 'wp_custom_attachment_nonce' );
+
+		$html = '';
+
+		$html .= '<p class="description">Upload your file here:</p>';
+		$html .= '<input type="file" id="gpsen_news_archives_attachment" name="gpsen_news_archives_attachment" value="">';
+
+		echo $html;
+	}
+
+
+
+
+
+	/**
+	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
+	 * @summary Remove metaboxes from the news archives custom post
+	 * @link https://codex.wordpress.org/Function_Reference/remove_meta_box
+	 * @return void
+	 */
+
+	public function gpsen_remove_news_archives_metaboxes () {
+
+		remove_meta_box( 'woothemes-settings', 'gpsen_news_archives', 'normal');
 
 	}
 

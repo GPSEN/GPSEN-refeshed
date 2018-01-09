@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: news-page-business-template
+ * Template Name: News Page Template
  *
  * The business page template displays your posts with a "business"-style
  * content slider at the top.
@@ -15,6 +15,12 @@ global $woo_options, $wp_query;
 get_header();
 
 $page_template = woo_get_page_template();
+
+require_once (__DIR__ . '/lib/GPSEN_posts.php');
+
+if ( class_exists('GPSEN_posts') ) {
+    $gpsen_posts = new GPSEN_posts();
+}
 
 ?>
      <!-- #content Starts -->
@@ -36,41 +42,49 @@ $page_template = woo_get_page_template();
 
                     woo_loop_before();
 
-                    // WP_Query arguments
-                    $args = array (
-                         'post_type'              => 'post',
-                         'category_name'          => 'news',
-                         'order'                  => 'DESC',
-                         'orderby'                => 'menu_order',
-                         'posts_per_page'         =>  '-1'
-                    );
+                    $post_type = 'post';
+                    $category = 'news';
+                    $number = '-1';
+                    $order = 'DESC';
+                    $menu_order = 'menu_order';
 
-                    // The Query
-                    $query = new WP_Query( $args );
+                    $gpsen_posts->gpsen_build_news_posts( $post_type, $category, $number, $order, $menu_order );
 
-                    // The Loop
-                    if ( $query->have_posts() ) {
-                         while ( $query->have_posts() ) {
-                              $query->the_post();
-                              echo '<div class="entry-content greySections addLiteMarginTop">';
-                              echo '<div class="whiteCard">';
-                              echo '<h3 class="blueHeaders">' . get_the_title($ID) . '</h3>';
-                              the_content();
-                              echo '</div>';
-                              echo '</div>';
-                         }
-                    } else {
-                         // no posts found
+                    $custom_terms = get_terms( 'gpsen_news_archives_categories' );
+                    echo '<pre>';
+                        var_dump($custom_terms);
+                    echo '</pre>';
+//                    $reordered_terms = [$custom_terms[1], $custom_terms[0], $custom_terms[2]];
+
+                    if ( !empty($custom_terms) ) {
+
+                        foreach ( $custom_terms as $term ) {
+	                        wp_reset_query();
+                            echo '<pre>';
+                                var_dump($term->slug);
+                            echo '</pre>';
+	                        $tax = [
+                                [
+	                                'taxonomy' => 'gpsen_news_archives_categories',
+	                                'field' => 'slug',
+	                                'terms' => $term->slug,
+                                ]
+	                        ];
+
+	                        $gpsen_posts->gpsen_build_news_archives( $tax, $term );
+
+                        }
+
                     }
 
-                    if (have_posts()) {
-                         $count = 0;
-                         while (have_posts()) {
-                              the_post();
-                              $count++;
-                              woo_get_template_part( 'content', 'page-template-business' ); // Get the page content template file, contextually.
-                         }
-                    }
+//                    if (have_posts()) {
+//                         $count = 0;
+//                         while (have_posts()) {
+//                              the_post();
+//                              $count++;
+//                              woo_get_template_part( 'content', 'page-template-business' ); // Get the page content template file, contextually.
+//                         }
+//                    }
                     woo_loop_after();
                     ?>
                </section><!-- /#main -->

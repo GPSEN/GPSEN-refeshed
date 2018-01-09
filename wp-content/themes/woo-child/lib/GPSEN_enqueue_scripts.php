@@ -23,9 +23,12 @@ class GPSEN_enqueue_scripts {
 	}
 
 	public function gpsen_enqueue_script () {
+		$permalink = get_permalink();
 
-		wp_enqueue_script('google-maps-script', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBviYWyqgHU-bKS3-ksZNz07jOtoH_2CLA', [], '1.0.0', true);
-		wp_enqueue_script('gpsen-partners-map', get_stylesheet_directory_uri() . '/build/js/gpsen_partner_map.js', ['google-maps-script'], '1.0.0', true);
+		if ('http://gpsen.org/partners/' === $permalink) {
+			wp_enqueue_script('google-maps-script', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBviYWyqgHU-bKS3-ksZNz07jOtoH_2CLA', [], '1.0.0', true);
+			wp_enqueue_script('gpsen-partners-map', get_stylesheet_directory_uri() . '/build/js/gpsen_partner_map.js', ['google-maps-script'], '1.0.0', true);
+		}
 
 	}
 
