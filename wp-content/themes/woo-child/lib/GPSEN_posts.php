@@ -56,9 +56,6 @@ class GPSEN_posts {
 			'tax_query' => $tax,
 		];
 
-		echo '<pre>';
-			var_dump($args);
-		echo '</pre>';
 		return $args;
 
 	}

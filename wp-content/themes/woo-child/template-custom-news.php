@@ -50,6 +50,10 @@ if ( class_exists('GPSEN_posts') ) {
 
                     $gpsen_posts->gpsen_build_news_posts( $post_type, $category, $number, $order, $menu_order );
 
+
+                    // News Archives
+                    echo '<h2 class="blueHeaders" id="newsLetterH2">GPSEN Newsletter Archives</h2>';
+
                     $custom_terms = get_terms( 'gpsen_news_archives_categories' );
 //                    echo '<pre>';
 //                        var_dump($custom_terms);

@@ -15,13 +15,19 @@ class GPSEN_custom_post_types {
 	 */
 
 	public function init () {
+		// For Partners custom post
 		add_action( 'init', [$this, 'gpsen_partner_custom_post_type'] );
 		add_action( 'add_meta_boxes', [$this, 'gpsen_remove_partners_metaboxes'] );
 
+		// For New Archives custom post
 		add_action( 'init', [$this, 'gpsen_news_archives_custom_post_type'] );
+
 		add_action( 'add_meta_boxes', [$this, 'gpsen_add_news_archives_metaboxes'] );
 		add_action( 'add_meta_boxes', [$this, 'gpsen_delete_news_archives_metaboxes'] );
+
 		add_action( 'save_post', [$this, 'gpsen_save_news_archives_data'], 10, 3 );
+		add_action( 'save_post', [$this, 'gpsen_delete_news_archives_attachment_item'], 10, 3 );
+
 		add_action('post_edit_form_tag', [$this, 'gpsen_update_edit_form'] );
 		add_action( 'add_meta_boxes', [$this, 'gpsen_remove_news_archives_metaboxes'] );
 	}
@@ -141,7 +147,7 @@ class GPSEN_custom_post_types {
 		add_meta_box(
 			'gpsen_news_archives_attachment',
 			'Add a News Archive Attachment',
-			[$this, 'gpsen_news_archives_attachment'],
+			[$this, 'gpsen_news_archives_attachment_metabox_html'],
 			'gpsen_news_archives',
 			'normal'
 		);
@@ -154,7 +160,7 @@ class GPSEN_custom_post_types {
 		add_meta_box(
 			'gpsen_delete_news_archives_attachment',
 			'Delete the News Archive Attachment',
-			[$this, 'gpsen_delete_news_archives_attachment'],
+			[$this, 'gpsen_delete_news_archives_attachment_metabox_html'],
 			'gpsen_news_archives',
 			'normal'
 		);
@@ -169,7 +175,7 @@ class GPSEN_custom_post_types {
 	 * @return void
 	*/
 
-	public function gpsen_news_archives_attachment () {
+	public function gpsen_news_archives_attachment_metabox_html () {
 		wp_nonce_field( plugin_basename( __FILE__ ), 'gpsen_news_archives_attachment_nonce' );
 
 		// For the file up load
@@ -184,20 +190,65 @@ class GPSEN_custom_post_types {
 	}
 
 
-	public function gpsen_delete_news_archives_attachment () {
+	/**
+	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
+	 * @summary Build the metabox for deleting uploaded file
+	 * @link https://codex.wordpress.org/Function_Reference/wp_nonce_field
+	 * @return void
+	 */
+
+	public function gpsen_delete_news_archives_attachment_metabox_html () {
 		wp_nonce_field( plugin_basename( __FILE__ ), 'gpsen_news_archives_attachment_nonce' );
 
 		$html = '';
-		$metadata = get_post_meta(get_the_ID(), 'gpsen_news_archives_attachment', true);
-		$filename = basename($metadata['file']);
+		$filename = '';
+		$metadata = get_post_meta(get_the_ID());
 
-		$html .= "<input type='checkbox' value='{$filename}' id='gpsen_news_archives_attachment_checkbox'>";
-		$html .= "<label for=\"gpsen_news_archives_attachment_checkbox\">{$filename}</label>";
+		if ( isset($metadata['gpsen_news_archives_attachment']) ) {
 
-		echo $html;
+			$unserialize_meta = unserialize($metadata['gpsen_news_archives_attachment'][0]);
+			$filename = esc_html(basename($unserialize_meta['file']));
+
+			$html .= '<p>Check this box to and update to delete the uploaded file:</p>';
+			$html .= "<input type=\"checkbox\" value=\"1\" id=\"gpsen_news_archives_attachment_checkbox\" name=\"gpsen_news_archives_attachment_checkbox\" />";
+			$html .= "<label for=\"gpsen_news_archives_attachment_checkbox\">{$filename}</label>";
+
+			echo $html;
+
+		} else {
+
+			$html .= '<p>No File Uploaded</p>';
+
+			echo $html;
+
+		}
 
 	}
 
+
+	/**
+	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
+	 * @summary If the Delete checkbox is checked delete the file
+	 * @link https://codex.wordpress.org/Function_Reference/delete_post_meta
+	 * @param int $id
+	 * @param object $post
+	 * @param object $update
+	 * @return void
+	*/
+
+	public function gpsen_delete_news_archives_attachment_item ( $id, $post, $update ) {
+
+		$id = $post->ID;
+		$chk = ( isset( $_POST['gpsen_news_archives_attachment_checkbox'] ) && $_POST['gpsen_news_archives_attachment_checkbox'] ) ? 'on' : 'off';
+
+		if ( $chk === 'on' ) {
+			delete_post_meta( $id, 'gpsen_news_archives_attachment');
+
+		} else {
+			echo 'Something else is checked.';
+		}
+
+	}
 
 
 	/**
@@ -237,7 +288,6 @@ class GPSEN_custom_post_types {
 		} else {
 
 			if ( !current_user_can('edit_page', $id) ) {
-				die('testing else');
 				return $id;
 			} // end if
 
@@ -265,7 +315,7 @@ class GPSEN_custom_post_types {
 					wp_die( 'There was an error uploading your file. The error is: ' . $upload['error'] );
 
 				} else {
-
+					delete_post_meta( $id, 'gpsen_news_archives_attachment');
 					add_post_meta( $id, 'gpsen_news_archives_attachment', $upload );
 					update_post_meta( $id, 'gpsen_news_archives_attachment', $upload );
 
