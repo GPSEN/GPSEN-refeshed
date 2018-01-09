@@ -42,7 +42,6 @@ var gpsenPartnerMap = function () {
 
 				if (checkForRequestDone) {
 					if (checkForStatus200) {
-						// console.log(JSON.parse(httpRequest.responseText));
 						resolve(httpRequest.responseText);
 					} else {
 						console.warn('There was an issue with the REST request' + httpRequest.err);
@@ -70,9 +69,6 @@ var gpsenPartnerMap = function () {
 
 		fetchPromise(queryString).then(function (json) {
 			buildMap(json);
-			// console.log(json);
-			// Return JSON with latitudes and longitudes added to rest response
-			// return buildTempArrays(json);
 		}).catch(function (err) {
 			console.log('There was an error in your promise: ' + err);
 		});
@@ -86,14 +82,8 @@ var gpsenPartnerMap = function () {
   * @param newKey
   * @returns {*}
   */
+
 	var changeKeysToLower = function changeKeysToLower(json, oldKey, newKey) {
-
-		// for (var i = 0; i < tempArrays.length; i++) {
-		// 	for (var add = 0; add < tempArrays[i].length; add++) {
-		//
-		// 	}
-		// }
-
 		for (var add = 0; add < json.length; add++) {
 
 			if (oldKey !== newKey && json[add]['post-meta-fields'][oldKey]) {
@@ -114,8 +104,6 @@ var gpsenPartnerMap = function () {
   */
 
 	var buildMap = function buildMap(json) {
-		console.log('build map called');
-
 		var infoWindow = new google.maps.InfoWindow();
 		var marker, add;
 
@@ -126,15 +114,13 @@ var gpsenPartnerMap = function () {
 		json = changeKeysToLower(json, 'Longitude', 'longitude');
 
 		var initialize = function initialize() {
-			console.log('initialize called');
 			// Create the map
 			var map = new google.maps.Map(document.getElementById('gpsen-partners-map'), {
 				zoom: 10,
 				center: new google.maps.LatLng(45.523375, -122.676201),
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			});
-			console.log('map');
-			console.log(map);
+
 			// Set the map back center when the user closes the infoWindow
 			google.maps.event.addListener(infoWindow, 'closeclick', function () {
 				map.setCenter(this.getPosition());
@@ -147,21 +133,23 @@ var gpsenPartnerMap = function () {
 
 				// Make sure key and functions exist
 				if (typeof json[add]['post-meta-fields'].address === 'undefined') {
-					console.log('inside address undefined');
 					continue;
 				}
 
 				if (typeof json[add]._embedded['wp:featuredmedia'] === 'undefined') {
-					console.log('inside featuredmedia undefined');
 					continue;
 				}
 
 				if (typeof json[add]['post-meta-fields'].latitude[0] === 'string') {
 					isLatDefined = json[add]['post-meta-fields'].latitude[0];
+				} else {
+					continue;
 				}
 
 				if (typeof json[add]['post-meta-fields'].longitude[0] === 'string') {
 					isLngDefined = json[add]['post-meta-fields'].longitude[0];
+				} else {
+					continue;
 				}
 
 				// Create each marker
@@ -196,9 +184,6 @@ var gpsenPartnerMap = function () {
 
 			// To add the marker to the map, call setMap();
 			marker.setMap(map);
-			console.log('marker');
-			console.log(marker);
-			console.log(map);
 		}; // End initialize();
 
 		initialize();
