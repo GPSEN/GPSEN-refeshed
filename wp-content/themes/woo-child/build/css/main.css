@@ -648,9 +648,10 @@ a:active {
   margin: 0 0 4% 0; }
 
 #partnersPage .fa-map-marker {
-  float: right;
   font-size: .70em;
-  margin-top: 2%; }
+  margin-top: 2%;
+  position: absolute;
+  right: 2%; }
 
 #partnersPage .fa-map-marker:before {
   vertical-align: -webkit-super;

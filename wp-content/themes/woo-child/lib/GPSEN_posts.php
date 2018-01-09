@@ -160,7 +160,7 @@ class GPSEN_posts {
 					update_post_meta( $id, 'address', $metadata['address'][0] );
 				}
 
-				echo "<div class=\"col-md-4\">";
+				echo "<div class=\"col-sm-4\">";
 				echo "	<a href=\"{$website}\" target=\"_blank\" rel=\"noopener\">";
 				echo "      <img class=\"img-responsive center-block sesc-sustaining-partner-img\" src=\"{$thumbnail}\" alt=\"\"/>";
 				echo '	</a>';
