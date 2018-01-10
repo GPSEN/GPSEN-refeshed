@@ -31,7 +31,6 @@ if ( class_exists( 'GPSEN_enqueue_scripts' ) ) {
 }
 
 
-
 if ( class_exists('GPSEN_custom_taxonomies') ) {
 
 	$gpsen_custom_taxonomies = new GPSEN_custom_taxonomies();

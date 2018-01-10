@@ -53,20 +53,19 @@ if ( class_exists('GPSEN_posts') ) {
 
                     // News Archives
                     echo '<h2 class="blueHeaders" id="newsLetterH2">GPSEN Newsletter Archives</h2>';
+                    echo '    <div id="newsAccordion">';
 
                     $custom_terms = get_terms( 'gpsen_news_archives_categories' );
 //                    echo '<pre>';
 //                        var_dump($custom_terms);
 //                    echo '</pre>';
-//                    $reordered_terms = [$custom_terms[1], $custom_terms[0], $custom_terms[2]];
+                    $reordered_terms = array_reverse( $custom_terms );
 
-                    if ( !empty($custom_terms) ) {
+                    if ( !empty($reordered_terms) ) {
 
-                        foreach ( $custom_terms as $term ) {
+                        foreach ( $reordered_terms as $term ) {
 	                        wp_reset_query();
-//                            echo '<pre>';
-//                                var_dump($term->slug);
-//                            echo '</pre>';
+
 	                        $tax = [
                                 [
 	                                'taxonomy' => 'gpsen_news_archives_categories',
@@ -89,6 +88,7 @@ if ( class_exists('GPSEN_posts') ) {
 //                              woo_get_template_part( 'content', 'page-template-business' ); // Get the page content template file, contextually.
 //                         }
 //                    }
+                    echo '</div><!--end news accordion-->';
                     woo_loop_after();
                     ?>
                </section><!-- /#main -->

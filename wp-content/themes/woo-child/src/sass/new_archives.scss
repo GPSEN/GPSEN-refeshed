@@ -1,0 +1,41 @@
+//@import './partials/news_archives';
+
+.newsArchivesAccordionInnerDiv {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 2% auto;
+	align-items: center;
+	justify-content: flex-start;
+	vertical-align: baseline;
+
+	.liteBlueButton {
+		width: 100%;
+		margin: 2% auto;
+		text-align: left;
+		padding: 1em;
+		font-size: 1em;
+		position: relative;
+
+		span {
+			position: absolute;
+			right: 10%;
+			top: 37%;
+		}
+	}
+}
+
+.lastArchivesDiv p:nth-child(even) {
+	display: none;
+}
+
+@media screen and (min-width: 481px) {
+	.newsArchivesAccordionInnerDiv {
+		.liteBlueButton {
+			width: 45%;
+		}
+	}
+}
+
+@media screen and (min-width: 1021px) {
+
+}

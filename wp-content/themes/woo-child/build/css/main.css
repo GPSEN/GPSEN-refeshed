@@ -57,7 +57,6 @@ main light blue = #53b1e5
 -----*/
 /*----------------general styles----*/
 body.custom-background {
-  -webkit-background-size: cover;
   background-size: cover; }
 
 .entry p {
@@ -164,6 +163,7 @@ a:active {
   border-radius: 3px;
   color: white;
   line-height: 1em !important;
+  -webkit-box-shadow: inset 0px -1px 2px 0px rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px -1px 2px 0px rgba(255, 255, 255, 0.25); }
 
 .blueHeaders a {
@@ -173,6 +173,7 @@ a:active {
   color: #fff;
   padding: .5em;
   border-radius: 3px;
+  -webkit-box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
   background-color: #009653;
   font-family: bitter; }
@@ -182,6 +183,7 @@ a:active {
   border-radius: 3px;
   border: none;
   text-align: center;
+  -webkit-box-shadow: 0px -1px 3px 0px rgba(255, 255, 255, 0.25) inset;
   box-shadow: 0px -1px 3px 0px rgba(255, 255, 255, 0.25) inset;
   -webkit-transition: all .25s ease;
   transition: all .25s ease;
@@ -195,9 +197,11 @@ a:active {
 
 .liteBlueButton:Hover {
   background: #7AC6EF;
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 .liteBlueButton:active {
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5); }
 
 .darkBlueButton {
@@ -219,9 +223,11 @@ a:active {
 
 .darkBlueButton:hover {
   background: #3296CB;
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 .darkBlueButton:active {
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5); }
 
 .accordionHeadersGrey {
@@ -233,6 +239,7 @@ a:active {
   transition: all .25s ease; }
 
 .accordionHeadersGrey:hover {
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 .fa-chevron-up:before {
@@ -250,11 +257,13 @@ a:active {
 
 .midGreenButton:hover {
   background: #007A43;
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 .whiteCard {
   background: #fff;
   border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 3px 0px #aaa;
   box-shadow: 0px 1px 3px 0px #aaa;
   padding: 2%; }
 
@@ -275,6 +284,7 @@ a:active {
 
 #navigation ul li:hover {
   background: #ffffff !important;
+  -webkit-box-shadow: 0px 2px 2px 0px #AAAAAA;
   box-shadow: 0px 2px 2px 0px #AAAAAA; }
 
 #navigation ul li a {
@@ -288,6 +298,7 @@ a:active {
 #navigation ul .current_page_item {
   background: #fff;
   color: #000;
+  -webkit-box-shadow: 0px 2px 2px 0px #AAAAAA;
   box-shadow: 0px 2px 2px 0px #AAAAAA; }
 
 /*---this is for the header section---*/
@@ -446,6 +457,7 @@ a:active {
 
 .blog .entry-title:hover {
   background: #007A43;
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 /*----------------------------------------This is for the newsPage------------*/
@@ -458,23 +470,6 @@ a:active {
 
 #newsPage h2.blueHeaders {
   margin: 12% 0 0 0; }
-
-.newsAccordionInnerDiv {
-  width: 44%;
-  margin: 0 2%;
-  display: inline-block; }
-
-.newsAccordionInnerDiv p {
-  margin: 0; }
-
-.newsAccordionInnerDiv p.liteBlueButton {
-  margin: 2% 0;
-  text-align: left;
-  padding: 1em;
-  font-size: 1em; }
-
-.lastArchivesDiv p:nth-child(even) {
-  display: none; }
 
 /*----------------------------------------for the About Page-------------*/
 .page-id-7 {
@@ -496,12 +491,14 @@ a:active {
 .meaningLogoText {
   background: #53b1e5;
   border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 3px #aaa inset;
   box-shadow: 0px 1px 3px #aaa inset;
   -webkit-transition: background .25s ease;
   transition: background .25s ease;
   margin: 0 auto; }
 
 .meaningLogoText:hover {
+  -webkit-box-shadow: 0px -1px 3px #aaa inset;
   box-shadow: 0px -1px 3px #aaa inset;
   background: #7AC6EF;
   -webkit-transition: background .25s ease;
@@ -546,6 +543,7 @@ a:active {
   display: none; }
 
 .eventsPage .greySections .floatLeft {
+  -webkit-box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
   border: none;
   margin-right: 4%; }
@@ -585,6 +583,7 @@ a:active {
   font-size: 1.5em; }
 
 #FAQAccordion h3:hover {
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 #FAQAccordion .listLinkButton {
@@ -595,10 +594,12 @@ a:active {
   width: 95%;
   margin: 2% auto;
   border-radius: 3px;
+  -webkit-box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25); }
 
 #FAQAccordion .listLinkButton:hover {
   background: #7AC6EF;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25);
   box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25); }
 
 #FAQAccordion .listLinkButton a {
@@ -664,7 +665,9 @@ a:active {
   display: none; }
 
 .partnerRedirectButton {
+  -webkit-transition: all .25s ease;
   transition: all .25s ease;
+  -webkit-box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25); }
 
 .partnerRedirectButton .greenHeaders {
@@ -681,6 +684,7 @@ a:active {
 
 .partnerRedirectButton:hover {
   background: #18AE6A;
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 .partnerRedirectButton a:active {
@@ -689,9 +693,6 @@ a:active {
 /*---new Partners page--*/
 .sustainingPartners h2 {
   -webkit-transform: translateY(60%);
-  -moz-transform: translateY(60%);
-  -ms-transform: translateY(60%);
-  -o-transform: translateY(60%);
   transform: translateY(60%);
   font-size: 1em; }
 
@@ -794,6 +795,7 @@ a:active {
   color: #fff;
   padding: .5em;
   border-radius: 3px;
+  -webkit-box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
   background-color: #009653;
   font-family: bitter; }
@@ -848,9 +850,11 @@ h3.gform_title .fa-chevron-down::before {
 
 .GPSENSidebar h3:hover {
   background: #3296CB;
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 .GPSENSidebar h3:active {
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5); }
 
 .GPSENSidebar h3 a {
@@ -869,10 +873,12 @@ h3.gform_title .fa-chevron-down::before {
   margin: 1% auto;
   font-size: 1.5em;
   border-radius: 3px;
+  -webkit-box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px -1px 3px 0px rgba(255, 255, 255, 0.25); }
 
 .donateSidebarButton h3:hover {
   background: #18AE6A;
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 /*-for the newletter section for widget---*/
@@ -889,6 +895,7 @@ h3.gform_title .fa-chevron-down::before {
 
 .newsletterButton:hover {
   background: #007A43;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25);
   box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.25); }
 
 #mc_embed_signup .mc-field-group .asterisk {
@@ -901,6 +908,7 @@ h3.gform_title .fa-chevron-down::before {
   color: #fff;
   padding: .5em;
   border-radius: 3px;
+  -webkit-box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px -1px 3px rgba(255, 255, 255, 0.25);
   background-color: #009653;
   font-family: bitter; }
@@ -922,6 +930,7 @@ h3.gform_title .fa-chevron-down::before {
 
 .sidebarAccordionWidgetChild:hover {
   background: #7AC6EF;
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 .sidebarAccordionWidgetChild p {
@@ -1070,6 +1079,7 @@ h3.gform_title .fa-chevron-down::before {
   font-size: inherit; }
 
 #footerNavigation h3:hover {
+  -webkit-box-shadow: 0px 2px 5px 0px #aaa;
   box-shadow: 0px 2px 5px 0px #aaa; }
 
 #footerNavigation ul {
@@ -1086,6 +1096,7 @@ h3.gform_title .fa-chevron-down::before {
 
 #footerNavigation ul li:hover {
   background: #7AC6EF;
+  -webkit-box-shadow: 0px 2px 5px 0px #aaaaaa;
   box-shadow: 0px 2px 5px 0px #aaaaaa; }
 
 #footerNavigation ul li a {
@@ -1099,9 +1110,6 @@ h3.gform_title .fa-chevron-down::before {
   .sustainingPartners h2 {
     width: 65%;
     -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
     transform: translateY(0);
     margin: 0 auto; }
   #footer #footerAboutUs {

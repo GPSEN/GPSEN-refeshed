@@ -16,14 +16,18 @@ class GPSEN_enqueue_scripts {
 	}
 
 	public function gpsen_enqueue_styles () {
+		$permalink = get_the_permalink();
 
+		if (strpos($permalink, 'localhost') || strpos($permalink, 'news') ) {
+			wp_enqueue_style('gpsen-news-archives', get_stylesheet_directory_uri() . '/build/css/new_archives.css', [], '1.0.0', 'all' );
+		}
 //		wp_enqueue_style('gpsen-main', get_stylesheet_directory_uri() . '/build/css/main.css', [], '', 'all' );
 		wp_enqueue_style('gpsen-partners', get_stylesheet_directory_uri() . '/build/css/partners.css', [], '', 'all' );
 
 	}
 
 	public function gpsen_enqueue_script () {
-		$permalink = get_permalink();
+		$permalink = get_the_permalink();
 
 		if ('http://gpsen.org/partners/' === $permalink) {
 			wp_enqueue_script('google-maps-script', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBviYWyqgHU-bKS3-ksZNz07jOtoH_2CLA', [], '1.0.0', true);
@@ -31,5 +35,6 @@ class GPSEN_enqueue_scripts {
 		}
 
 	}
+
 
 } // end class

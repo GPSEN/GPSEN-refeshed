@@ -129,7 +129,7 @@ class GPSEN_custom_post_types {
 			'rewrite' => ['slug' => 'gpsen_news_archives'],
 			'taxonomies' => ['gpsen_news_archives_categories'],
 			'menu_position' => 7,
-			'supports' => ['title', ],
+			'supports' => ['title', 'page-attributes' ],
 			'capability_type'     => 'post',
 			'show_in_admin_bar'   => true,
 			'show_in_nav_menus'   => true,
@@ -244,8 +244,6 @@ class GPSEN_custom_post_types {
 		if ( $chk === 'on' ) {
 			delete_post_meta( $id, 'gpsen_news_archives_attachment');
 
-		} else {
-			echo 'Something else is checked.';
 		}
 
 	}
@@ -266,8 +264,9 @@ class GPSEN_custom_post_types {
 		$id = $post->ID;
 
 		/* --- security verification --- */
+//		Notice: Undefined index: post_type in /var/www/html/gpsen/wp-content/themes/woo-child/lib/GPSEN_custom_post_types.php on line 282
 
-		if ( !wp_verify_nonce($_POST['gpsen_news_archives_attachment_nonce'], plugin_basename(__FILE__)) ) {
+		if (!isset($_POST['gpsen_news_archives_attachment_nonce']) || !wp_verify_nonce($_POST['gpsen_news_archives_attachment_nonce'], plugin_basename(__FILE__)) ) {
 
 			return $id;
 
@@ -279,7 +278,7 @@ class GPSEN_custom_post_types {
 
 		} // end if
 
-		if ( 'page' == $_POST['post_type'] ) {
+		if ( isset($_POST['post_type']) || 'page' == $_POST['post_type'] ) {
 
 			if (!current_user_can('edit_page', $id)) {
 				return $id;
@@ -346,6 +345,7 @@ class GPSEN_custom_post_types {
 	public function gpsen_remove_news_archives_metaboxes () {
 
 		remove_meta_box( 'woothemes-settings', 'gpsen_news_archives', 'normal');
+		remove_meta_box( 'mymetabox_revslider_0', 'gpsen_news_archives', 'normal');
 
 	}
 

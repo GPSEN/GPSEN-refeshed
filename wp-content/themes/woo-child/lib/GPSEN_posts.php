@@ -226,32 +226,57 @@ class GPSEN_posts {
 
 	public function gpsen_build_news_archives ( $tax, $term ) {
 
-		$gpsen_news_archives_posts_args = self::gpsen_posts_tax_query_factory( $tax, 'gpsen_news_archives', '-1', 'ASC', 'name' );
+		$gpsen_news_archives_posts_args = self::gpsen_posts_tax_query_factory( $tax, 'gpsen_news_archives', '-1', 'DESC', 'menu_order' );
 		$gpsen_news_archives_posts_query = new WP_Query( $gpsen_news_archives_posts_args );
 
-//		echo '<pre>';
-////			var_dump($gpsen_news_archives_posts_query);
-//			var_dump( $term->name);
-//		echo '</pre>';
+
+		echo "<h3 class=\"accordionHeadersGrey\">{$term->name}</h3>";
+		echo '<div class="greySections">';
+        echo '    <div class="whiteCard">';
+		echo '      <div class="newsArchivesAccordionInnerDiv">';
 
 		if ( $gpsen_news_archives_posts_query->have_posts() ) {
-
 			while ( $gpsen_news_archives_posts_query->have_posts() ) {
 				$gpsen_news_archives_posts_query->the_post();
 
-				echo '<div>Testing</div>';
+				$url = '';
+				$file_type = '';
+				$fa_icon = '';
+				$title = get_the_title();
 				$metadata = get_post_meta(get_the_ID(), 'gpsen_news_archives_attachment', true);
 
-				echo '<pre>';
-					var_dump($metadata);
-				echo '</pre>';
+//				echo '<pre>';
+//					var_dump($metadata);
+//				echo '</pre>';
 
+				if ( isset($metadata['url']) ) {
+					$url = $metadata['url'];
+					$file_type = wp_check_filetype($metadata['url']);
+				}
+
+				if ( isset($file_type['ext']) ) {
+					if ( 'docx' === $file_type['ext'] || 'doc' === $file_type['ext'] ) {
+						$fa_icon = 'fa-file-word-o';
+					} else if ('pdf' === $file_type['ext']) {
+						$fa_icon = 'fa-file-pdf-o';
+					}
+				}
+
+				// if there isn't and metadata for the url don't show anything
+				if ( isset($metadata['url']) ) {
+					echo "<a href=\"{$url}\" target=\"_blank\" class=\"liteBlueButton\">{$title}<span class=\"fa {$fa_icon}\"></span></a>";
+				} else {
+					echo "";
+				}
 			}
 			wp_reset_postdata();
 		} else {
 			self::gpsen_no_posts_found();
 		}
 
+		echo '    </div>';
+		echo '	</div>';
+		echo '</div>';
 	}
 
 
