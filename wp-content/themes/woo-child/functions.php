@@ -6,6 +6,8 @@ require_once( __DIR__ . '/lib/GPSEN_enqueue_scripts.php' );
 require_once( __DIR__ . '/lib/GPSEN_custom_taxonomies.php');
 require_once( __DIR__ . '/lib/GPSEN_custom_post_types.php' );
 require_once( __DIR__ . '/lib/GPSEN_rest_api.php');
+require_once( __DIR__ . '/lib/GPSEN_admin_mods.php');
+
 
 /**
  * @summary Make sure the class exists and call its init()
@@ -51,6 +53,12 @@ if ( class_exists('GPSEN_rest_api') ) {
 	$gpsen__rest_api->init();
 
 }
+
+if ( class_exists('GPSEN_admin_mods') ) {
+	$gpsen_admin_mods = new GPSEN_admin_mods();
+	$gpsen_admin_mods->init();
+}
+
 
 
 /*---adding Page supports to posts---*/

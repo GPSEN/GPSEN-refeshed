@@ -38,6 +38,27 @@ if ( class_exists('GPSEN_posts') ) {
 
                <section id="main">
                     <h2 class="greenHeaders">News</h2>
+
+                    <?php
+                    // TO SHOW THE PAGE CONTENTS
+                    while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
+	                    <?php
+	                    $content = get_the_content();
+	                    if(!empty($content)) { ?>
+                            <div class="entry-content-page">
+                                <div class="greySections">
+                                    <div class="whiteCard">
+					                    <?php the_content(); ?> <!-- Page Content -->
+                                    </div>
+                                </div>
+                            </div><!-- .entry-content-page -->
+                            <div class="clearBoth"></div>
+	                    <?php } ?>
+                    <?php
+                    endwhile; //resetting the page loop
+                    wp_reset_query(); //resetting the page query
+                    ?>
+
                     <?php
 
                     woo_loop_before();
@@ -79,15 +100,6 @@ if ( class_exists('GPSEN_posts') ) {
                         }
 
                     }
-
-//                    if (have_posts()) {
-//                         $count = 0;
-//                         while (have_posts()) {
-//                              the_post();
-//                              $count++;
-//                              woo_get_template_part( 'content', 'page-template-business' ); // Get the page content template file, contextually.
-//                         }
-//                    }
                     echo '</div><!--end news accordion-->';
                     woo_loop_after();
                     ?>

@@ -245,10 +245,6 @@ class GPSEN_posts {
 				$title = get_the_title();
 				$metadata = get_post_meta(get_the_ID(), 'gpsen_news_archives_attachment', true);
 
-//				echo '<pre>';
-//					var_dump($metadata);
-//				echo '</pre>';
-
 				if ( isset($metadata['url']) ) {
 					$url = $metadata['url'];
 					$file_type = wp_check_filetype($metadata['url']);
